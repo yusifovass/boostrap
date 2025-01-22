@@ -1,0 +1,1654 @@
+<!doctype html>
+<html lang="en-US">
+<head><meta charset="UTF-8"><script>if(navigator.userAgent.match(/MSIE|Internet Explorer/i)||navigator.userAgent.match(/Trident\/7\..*?rv:11/i)){var href=document.location.href;if(!href.match(/[?&]nowprocket/)){if(href.indexOf("?")==-1){if(href.indexOf("#")==-1){document.location.href=href+"?nowprocket=1"}else{document.location.href=href.replace("#","?nowprocket=1#")}}else{if(href.indexOf("#")==-1){document.location.href=href+"&nowprocket=1"}else{document.location.href=href.replace("#","&nowprocket=1#")}}}}</script><script>class RocketLazyLoadScripts{constructor(){this.v="1.2.3",this.triggerEvents=["keydown","mousedown","mousemove","touchmove","touchstart","touchend","wheel"],this.userEventHandler=this._triggerListener.bind(this),this.touchStartHandler=this._onTouchStart.bind(this),this.touchMoveHandler=this._onTouchMove.bind(this),this.touchEndHandler=this._onTouchEnd.bind(this),this.clickHandler=this._onClick.bind(this),this.interceptedClicks=[],window.addEventListener("pageshow",t=>{this.persisted=t.persisted}),window.addEventListener("DOMContentLoaded",()=>{this._preconnect3rdParties()}),this.delayedScripts={normal:[],async:[],defer:[]},this.trash=[],this.allJQueries=[]}_addUserInteractionListener(t){if(document.hidden){t._triggerListener();return}this.triggerEvents.forEach(e=>window.addEventListener(e,t.userEventHandler,{passive:!0})),window.addEventListener("touchstart",t.touchStartHandler,{passive:!0}),window.addEventListener("mousedown",t.touchStartHandler),document.addEventListener("visibilitychange",t.userEventHandler)}_removeUserInteractionListener(){this.triggerEvents.forEach(t=>window.removeEventListener(t,this.userEventHandler,{passive:!0})),document.removeEventListener("visibilitychange",this.userEventHandler)}_onTouchStart(t){"HTML"!==t.target.tagName&&(window.addEventListener("touchend",this.touchEndHandler),window.addEventListener("mouseup",this.touchEndHandler),window.addEventListener("touchmove",this.touchMoveHandler,{passive:!0}),window.addEventListener("mousemove",this.touchMoveHandler),t.target.addEventListener("click",this.clickHandler),this._renameDOMAttribute(t.target,"onclick","rocket-onclick"),this._pendingClickStarted())}_onTouchMove(t){window.removeEventListener("touchend",this.touchEndHandler),window.removeEventListener("mouseup",this.touchEndHandler),window.removeEventListener("touchmove",this.touchMoveHandler,{passive:!0}),window.removeEventListener("mousemove",this.touchMoveHandler),t.target.removeEventListener("click",this.clickHandler),this._renameDOMAttribute(t.target,"rocket-onclick","onclick"),this._pendingClickFinished()}_onTouchEnd(t){window.removeEventListener("touchend",this.touchEndHandler),window.removeEventListener("mouseup",this.touchEndHandler),window.removeEventListener("touchmove",this.touchMoveHandler,{passive:!0}),window.removeEventListener("mousemove",this.touchMoveHandler)}_onClick(t){t.target.removeEventListener("click",this.clickHandler),this._renameDOMAttribute(t.target,"rocket-onclick","onclick"),this.interceptedClicks.push(t),t.preventDefault(),t.stopPropagation(),t.stopImmediatePropagation(),this._pendingClickFinished()}_replayClicks(){window.removeEventListener("touchstart",this.touchStartHandler,{passive:!0}),window.removeEventListener("mousedown",this.touchStartHandler),this.interceptedClicks.forEach(t=>{t.target.dispatchEvent(new MouseEvent("click",{view:t.view,bubbles:!0,cancelable:!0}))})}_waitForPendingClicks(){return new Promise(t=>{this._isClickPending?this._pendingClickFinished=t:t()})}_pendingClickStarted(){this._isClickPending=!0}_pendingClickFinished(){this._isClickPending=!1}_renameDOMAttribute(t,e,r){t.hasAttribute&&t.hasAttribute(e)&&(event.target.setAttribute(r,event.target.getAttribute(e)),event.target.removeAttribute(e))}_triggerListener(){this._removeUserInteractionListener(this),"loading"===document.readyState?document.addEventListener("DOMContentLoaded",this._loadEverythingNow.bind(this)):this._loadEverythingNow()}_preconnect3rdParties(){let t=[];document.querySelectorAll("script[type=rocketlazyloadscript]").forEach(e=>{if(e.hasAttribute("src")){let r=new URL(e.src).origin;r!==location.origin&&t.push({src:r,crossOrigin:e.crossOrigin||"module"===e.getAttribute("data-rocket-type")})}}),t=[...new Map(t.map(t=>[JSON.stringify(t),t])).values()],this._batchInjectResourceHints(t,"preconnect")}async _loadEverythingNow(){this.lastBreath=Date.now(),this._delayEventListeners(this),this._delayJQueryReady(this),this._handleDocumentWrite(),this._registerAllDelayedScripts(),this._preloadAllScripts(),await this._loadScriptsFromList(this.delayedScripts.normal),await this._loadScriptsFromList(this.delayedScripts.defer),await this._loadScriptsFromList(this.delayedScripts.async);try{await this._triggerDOMContentLoaded(),await this._triggerWindowLoad()}catch(t){console.error(t)}window.dispatchEvent(new Event("rocket-allScriptsLoaded")),this._waitForPendingClicks().then(()=>{this._replayClicks()}),this._emptyTrash()}_registerAllDelayedScripts(){document.querySelectorAll("script[type=rocketlazyloadscript]").forEach(t=>{t.hasAttribute("data-rocket-src")?t.hasAttribute("async")&&!1!==t.async?this.delayedScripts.async.push(t):t.hasAttribute("defer")&&!1!==t.defer||"module"===t.getAttribute("data-rocket-type")?this.delayedScripts.defer.push(t):this.delayedScripts.normal.push(t):this.delayedScripts.normal.push(t)})}async _transformScript(t){return new Promise((await this._littleBreath(),navigator.userAgent.indexOf("Firefox/")>0||""===navigator.vendor)?e=>{let r=document.createElement("script");[...t.attributes].forEach(t=>{let e=t.nodeName;"type"!==e&&("data-rocket-type"===e&&(e="type"),"data-rocket-src"===e&&(e="src"),r.setAttribute(e,t.nodeValue))}),t.text&&(r.text=t.text),r.hasAttribute("src")?(r.addEventListener("load",e),r.addEventListener("error",e)):(r.text=t.text,e());try{t.parentNode.replaceChild(r,t)}catch(i){e()}}:async e=>{function r(){t.setAttribute("data-rocket-status","failed"),e()}try{let i=t.getAttribute("data-rocket-type"),n=t.getAttribute("data-rocket-src");t.text,i?(t.type=i,t.removeAttribute("data-rocket-type")):t.removeAttribute("type"),t.addEventListener("load",function r(){t.setAttribute("data-rocket-status","executed"),e()}),t.addEventListener("error",r),n?(t.removeAttribute("data-rocket-src"),t.src=n):t.src="data:text/javascript;base64,"+window.btoa(unescape(encodeURIComponent(t.text)))}catch(s){r()}})}async _loadScriptsFromList(t){let e=t.shift();return e&&e.isConnected?(await this._transformScript(e),this._loadScriptsFromList(t)):Promise.resolve()}_preloadAllScripts(){this._batchInjectResourceHints([...this.delayedScripts.normal,...this.delayedScripts.defer,...this.delayedScripts.async],"preload")}_batchInjectResourceHints(t,e){var r=document.createDocumentFragment();t.forEach(t=>{let i=t.getAttribute&&t.getAttribute("data-rocket-src")||t.src;if(i){let n=document.createElement("link");n.href=i,n.rel=e,"preconnect"!==e&&(n.as="script"),t.getAttribute&&"module"===t.getAttribute("data-rocket-type")&&(n.crossOrigin=!0),t.crossOrigin&&(n.crossOrigin=t.crossOrigin),t.integrity&&(n.integrity=t.integrity),r.appendChild(n),this.trash.push(n)}}),document.head.appendChild(r)}_delayEventListeners(t){let e={};function r(t,r){!function t(r){!e[r]&&(e[r]={originalFunctions:{add:r.addEventListener,remove:r.removeEventListener},eventsToRewrite:[]},r.addEventListener=function(){arguments[0]=i(arguments[0]),e[r].originalFunctions.add.apply(r,arguments)},r.removeEventListener=function(){arguments[0]=i(arguments[0]),e[r].originalFunctions.remove.apply(r,arguments)});function i(t){return e[r].eventsToRewrite.indexOf(t)>=0?"rocket-"+t:t}}(t),e[t].eventsToRewrite.push(r)}function i(t,e){let r=t[e];Object.defineProperty(t,e,{get:()=>r||function(){},set(i){t["rocket"+e]=r=i}})}r(document,"DOMContentLoaded"),r(window,"DOMContentLoaded"),r(window,"load"),r(window,"pageshow"),r(document,"readystatechange"),i(document,"onreadystatechange"),i(window,"onload"),i(window,"onpageshow")}_delayJQueryReady(t){let e;function r(r){if(r&&r.fn&&!t.allJQueries.includes(r)){r.fn.ready=r.fn.init.prototype.ready=function(e){return t.domReadyFired?e.bind(document)(r):document.addEventListener("rocket-DOMContentLoaded",()=>e.bind(document)(r)),r([])};let i=r.fn.on;r.fn.on=r.fn.init.prototype.on=function(){if(this[0]===window){function t(t){return t.split(" ").map(t=>"load"===t||0===t.indexOf("load.")?"rocket-jquery-load":t).join(" ")}"string"==typeof arguments[0]||arguments[0]instanceof String?arguments[0]=t(arguments[0]):"object"==typeof arguments[0]&&Object.keys(arguments[0]).forEach(e=>{let r=arguments[0][e];delete arguments[0][e],arguments[0][t(e)]=r})}return i.apply(this,arguments),this},t.allJQueries.push(r)}e=r}r(window.jQuery),Object.defineProperty(window,"jQuery",{get:()=>e,set(t){r(t)}})}async _triggerDOMContentLoaded(){this.domReadyFired=!0,await this._littleBreath(),document.dispatchEvent(new Event("rocket-DOMContentLoaded")),await this._littleBreath(),window.dispatchEvent(new Event("rocket-DOMContentLoaded")),await this._littleBreath(),document.dispatchEvent(new Event("rocket-readystatechange")),await this._littleBreath(),document.rocketonreadystatechange&&document.rocketonreadystatechange()}async _triggerWindowLoad(){await this._littleBreath(),window.dispatchEvent(new Event("rocket-load")),await this._littleBreath(),window.rocketonload&&window.rocketonload(),await this._littleBreath(),this.allJQueries.forEach(t=>t(window).trigger("rocket-jquery-load")),await this._littleBreath();let t=new Event("rocket-pageshow");t.persisted=this.persisted,window.dispatchEvent(t),await this._littleBreath(),window.rocketonpageshow&&window.rocketonpageshow({persisted:this.persisted})}_handleDocumentWrite(){let t=new Map;document.write=document.writeln=function(e){let r=document.currentScript;r||console.error("WPRocket unable to document.write this: "+e);let i=document.createRange(),n=r.parentElement,s=t.get(r);void 0===s&&(s=r.nextSibling,t.set(r,s));let a=document.createDocumentFragment();i.setStart(a,0),a.appendChild(i.createContextualFragment(e)),n.insertBefore(a,s)}}async _littleBreath(){Date.now()-this.lastBreath>45&&(await this._requestAnimFrame(),this.lastBreath=Date.now())}async _requestAnimFrame(){return document.hidden?new Promise(t=>setTimeout(t)):new Promise(t=>requestAnimationFrame(t))}_emptyTrash(){this.trash.forEach(t=>t.remove())}static run(){let t=new RocketLazyLoadScripts;t._addUserInteractionListener(t)}}RocketLazyLoadScripts.run();</script>
+	
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="profile" href="https://gmpg.org/xfn/11">
+
+	<title>Codding of computer language - PixaHive</title><link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro%3Aital%2Cwght%400%2C400%3B0%2C700%3B1%2C400&#038;ver=6.2.6&#038;display=swap" /><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro%3Aital%2Cwght%400%2C400%3B0%2C700%3B1%2C400&#038;ver=6.2.6&#038;display=swap" media="print" onload="this.media='all'" /><noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro%3Aital%2Cwght%400%2C400%3B0%2C700%3B1%2C400&#038;ver=6.2.6&#038;display=swap" /></noscript>
+<link rel="preload" as="font" href="https://pixahive.com/wp-content/themes/hive/assets/libraries/font-awesome/fonts/fontawesome-webfont.ttf" crossorigin>
+<link rel="preload" as="font" href="https://pixahive.com/wp-content/themes/hive/assets/libraries/font-awesome/fonts/fontawesome-webfont.woff" crossorigin>
+<link rel="preload" as="font" href="https://pixahive.com/wp-content/themes/hive/assets/libraries/font-awesome/fonts/FontAwesome.otf" crossorigin>
+<link rel="preload" as="font" href="https://pixahive.com/wp-content/themes/hive/assets/libraries/font-awesome/fonts/fontawesome-webfont.woff2" crossorigin>
+<link rel="preload" as="font" href="https://pixahive.com/wp-content/themes/hive/assets/libraries/font-awesome/fonts/fontawesome-webfont.woff2?v=4.6.3" crossorigin>
+<meta name='robots' content='max-image-preview:large' />
+
+<!-- This site is optimized with the Yoast SEO Premium plugin v13.0 - https://yoast.com/wordpress/plugins/seo/ -->
+<meta name="robots" content="max-snippet:-1, max-image-preview:large, max-video-preview:-1"/>
+<link rel="canonical" href="https://pixahive.com/photo/__trashed-295/" />
+<meta property="og:locale" content="en_US" />
+<meta property="og:type" content="article" />
+<meta property="og:title" content="Codding of computer language - PixaHive" />
+<meta property="og:description" content="Codding, Computer, binary language, Computer language, numbers, Programming, Software" />
+<meta property="og:url" content="https://pixahive.com/photo/__trashed-295/" />
+<meta property="og:site_name" content="PixaHive" />
+<meta property="article:publisher" content="https://www.facebook.com/pixahive/" />
+<meta property="og:image" content="https://pixahive.com/wp-content/uploads/2020/09/Codding-of-computer-language-65664-pixahive-1024x768.jpg" />
+<meta property="og:image:secure_url" content="https://pixahive.com/wp-content/uploads/2020/09/Codding-of-computer-language-65664-pixahive-1024x768.jpg" />
+<meta property="og:image:width" content="1024" />
+<meta property="og:image:height" content="768" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:description" content="Codding, Computer, binary language, Computer language, numbers, Programming, Software" />
+<meta name="twitter:title" content="Codding of computer language - PixaHive" />
+<meta name="twitter:image" content="https://i0.wp.com/pixahive.com/wp-content/uploads/2020/09/Codding-of-computer-language-65664-pixahive.jpg?fit=2560%2C1920&#038;ssl=1" />
+<script type='application/ld+json' class='yoast-schema-graph yoast-schema-graph--main'>{"@context":"https://schema.org","@graph":[{"@type":"WebSite","@id":"https://pixahive.com/#website","url":"https://pixahive.com/","name":"PixaHive","description":"100% Free &amp; Public Domain Photos with CC0 License","potentialAction":{"@type":"SearchAction","target":"https://pixahive.com/?s={search_term_string}","query-input":"required name=search_term_string"}},{"@type":"ImageObject","@id":"https://pixahive.com/photo/__trashed-295/#primaryimage","url":"https://i0.wp.com/pixahive.com/wp-content/uploads/2020/09/Codding-of-computer-language-65664-pixahive.jpg?fit=2560%2C1920&ssl=1","width":2560,"height":1920},{"@type":"WebPage","@id":"https://pixahive.com/photo/__trashed-295/#webpage","url":"https://pixahive.com/photo/__trashed-295/","inLanguage":"en-US","name":"Codding of computer language - PixaHive","isPartOf":{"@id":"https://pixahive.com/#website"},"primaryImageOfPage":{"@id":"https://pixahive.com/photo/__trashed-295/#primaryimage"},"datePublished":"2020-09-29T15:35:35+00:00","dateModified":"2025-01-20T13:14:08+00:00"}]}</script>
+<!-- / Yoast SEO Premium plugin. -->
+
+<link rel='dns-prefetch' href='//www.google.com' />
+<link rel='dns-prefetch' href='//stats.wp.com' />
+<link rel='dns-prefetch' href='//fonts.googleapis.com' />
+<link rel='dns-prefetch' href='//i0.wp.com' />
+<link href='https://fonts.gstatic.com' crossorigin rel='preconnect' />
+<link rel="alternate" type="application/rss+xml" title="PixaHive &raquo; Feed" href="https://pixahive.com/feed/" />
+<link rel="alternate" type="application/rss+xml" title="PixaHive &raquo; Comments Feed" href="https://pixahive.com/comments/feed/" />
+<link rel="alternate" type="application/rss+xml" title="PixaHive &raquo; Codding of computer language Comments Feed" href="https://pixahive.com/photo/__trashed-295/feed/" />
+<style>
+img.wp-smiley,
+img.emoji {
+	display: inline !important;
+	border: none !important;
+	box-shadow: none !important;
+	height: 1em !important;
+	width: 1em !important;
+	margin: 0 0.07em !important;
+	vertical-align: -0.1em !important;
+	background: none !important;
+	padding: 0 !important;
+}
+</style>
+	<link rel='stylesheet' id='wp-block-library-css' href='https://pixahive.com/wp-includes/css/dist/block-library/style.min.css?ver=6.2.6' media='all' />
+<style id='wp-block-library-inline-css'>
+.has-text-align-justify{text-align:justify;}
+</style>
+<link data-minify="1" rel='stylesheet' id='jetpack-videopress-video-block-view-css' href='https://pixahive.com/wp-content/cache/min/1/wp-content/plugins/jetpack/jetpack_vendor/automattic/jetpack-videopress/build/block-editor/blocks/video/view.css?ver=1733547488' media='all' />
+<link rel='stylesheet' id='mediaelement-css' href='https://pixahive.com/wp-includes/js/mediaelement/mediaelementplayer-legacy.min.css?ver=4.2.17' media='all' />
+<link rel='stylesheet' id='wp-mediaelement-css' href='https://pixahive.com/wp-includes/js/mediaelement/wp-mediaelement.min.css?ver=6.2.6' media='all' />
+<link rel='stylesheet' id='classic-theme-styles-css' href='https://pixahive.com/wp-includes/css/classic-themes.min.css?ver=6.2.6' media='all' />
+<style id='global-styles-inline-css'>
+body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: #abb8c3;--wp--preset--color--white: #ffffff;--wp--preset--color--pale-pink: #f78da7;--wp--preset--color--vivid-red: #cf2e2e;--wp--preset--color--luminous-vivid-orange: #ff6900;--wp--preset--color--luminous-vivid-amber: #fcb900;--wp--preset--color--light-green-cyan: #7bdcb5;--wp--preset--color--vivid-green-cyan: #00d084;--wp--preset--color--pale-cyan-blue: #8ed1fc;--wp--preset--color--vivid-cyan-blue: #0693e3;--wp--preset--color--vivid-purple: #9b51e0;--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple: linear-gradient(135deg,rgba(6,147,227,1) 0%,rgb(155,81,224) 100%);--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan: linear-gradient(135deg,rgb(122,220,180) 0%,rgb(0,208,130) 100%);--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange: linear-gradient(135deg,rgba(252,185,0,1) 0%,rgba(255,105,0,1) 100%);--wp--preset--gradient--luminous-vivid-orange-to-vivid-red: linear-gradient(135deg,rgba(255,105,0,1) 0%,rgb(207,46,46) 100%);--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray: linear-gradient(135deg,rgb(238,238,238) 0%,rgb(169,184,195) 100%);--wp--preset--gradient--cool-to-warm-spectrum: linear-gradient(135deg,rgb(74,234,220) 0%,rgb(151,120,209) 20%,rgb(207,42,186) 40%,rgb(238,44,130) 60%,rgb(251,105,98) 80%,rgb(254,248,76) 100%);--wp--preset--gradient--blush-light-purple: linear-gradient(135deg,rgb(255,206,236) 0%,rgb(152,150,240) 100%);--wp--preset--gradient--blush-bordeaux: linear-gradient(135deg,rgb(254,205,165) 0%,rgb(254,45,45) 50%,rgb(107,0,62) 100%);--wp--preset--gradient--luminous-dusk: linear-gradient(135deg,rgb(255,203,112) 0%,rgb(199,81,192) 50%,rgb(65,88,208) 100%);--wp--preset--gradient--pale-ocean: linear-gradient(135deg,rgb(255,245,203) 0%,rgb(182,227,212) 50%,rgb(51,167,181) 100%);--wp--preset--gradient--electric-grass: linear-gradient(135deg,rgb(202,248,128) 0%,rgb(113,206,126) 100%);--wp--preset--gradient--midnight: linear-gradient(135deg,rgb(2,3,129) 0%,rgb(40,116,252) 100%);--wp--preset--duotone--dark-grayscale: url('#wp-duotone-dark-grayscale');--wp--preset--duotone--grayscale: url('#wp-duotone-grayscale');--wp--preset--duotone--purple-yellow: url('#wp-duotone-purple-yellow');--wp--preset--duotone--blue-red: url('#wp-duotone-blue-red');--wp--preset--duotone--midnight: url('#wp-duotone-midnight');--wp--preset--duotone--magenta-yellow: url('#wp-duotone-magenta-yellow');--wp--preset--duotone--purple-green: url('#wp-duotone-purple-green');--wp--preset--duotone--blue-orange: url('#wp-duotone-blue-orange');--wp--preset--font-size--small: 13px;--wp--preset--font-size--medium: 20px;--wp--preset--font-size--large: 36px;--wp--preset--font-size--x-large: 42px;--wp--preset--spacing--20: 0.44rem;--wp--preset--spacing--30: 0.67rem;--wp--preset--spacing--40: 1rem;--wp--preset--spacing--50: 1.5rem;--wp--preset--spacing--60: 2.25rem;--wp--preset--spacing--70: 3.38rem;--wp--preset--spacing--80: 5.06rem;--wp--preset--shadow--natural: 6px 6px 9px rgba(0, 0, 0, 0.2);--wp--preset--shadow--deep: 12px 12px 50px rgba(0, 0, 0, 0.4);--wp--preset--shadow--sharp: 6px 6px 0px rgba(0, 0, 0, 0.2);--wp--preset--shadow--outlined: 6px 6px 0px -3px rgba(255, 255, 255, 1), 6px 6px rgba(0, 0, 0, 1);--wp--preset--shadow--crisp: 6px 6px 0px rgba(0, 0, 0, 1);}:where(.is-layout-flex){gap: 0.5em;}body .is-layout-flow > .alignleft{float: left;margin-inline-start: 0;margin-inline-end: 2em;}body .is-layout-flow > .alignright{float: right;margin-inline-start: 2em;margin-inline-end: 0;}body .is-layout-flow > .aligncenter{margin-left: auto !important;margin-right: auto !important;}body .is-layout-constrained > .alignleft{float: left;margin-inline-start: 0;margin-inline-end: 2em;}body .is-layout-constrained > .alignright{float: right;margin-inline-start: 2em;margin-inline-end: 0;}body .is-layout-constrained > .aligncenter{margin-left: auto !important;margin-right: auto !important;}body .is-layout-constrained > :where(:not(.alignleft):not(.alignright):not(.alignfull)){max-width: var(--wp--style--global--content-size);margin-left: auto !important;margin-right: auto !important;}body .is-layout-constrained > .alignwide{max-width: var(--wp--style--global--wide-size);}body .is-layout-flex{display: flex;}body .is-layout-flex{flex-wrap: wrap;align-items: center;}body .is-layout-flex > *{margin: 0;}:where(.wp-block-columns.is-layout-flex){gap: 2em;}.has-black-color{color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-color{color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-color{color: var(--wp--preset--color--white) !important;}.has-pale-pink-color{color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-color{color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-color{color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-color{color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-color{color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-color{color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-color{color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-color{color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-color{color: var(--wp--preset--color--vivid-purple) !important;}.has-black-background-color{background-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-background-color{background-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-background-color{background-color: var(--wp--preset--color--white) !important;}.has-pale-pink-background-color{background-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-background-color{background-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-background-color{background-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-background-color{background-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-background-color{background-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-background-color{background-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-background-color{background-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-background-color{background-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-background-color{background-color: var(--wp--preset--color--vivid-purple) !important;}.has-black-border-color{border-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-border-color{border-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-border-color{border-color: var(--wp--preset--color--white) !important;}.has-pale-pink-border-color{border-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-border-color{border-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-border-color{border-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-border-color{border-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-border-color{border-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-border-color{border-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-border-color{border-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-border-color{border-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-border-color{border-color: var(--wp--preset--color--vivid-purple) !important;}.has-vivid-cyan-blue-to-vivid-purple-gradient-background{background: var(--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple) !important;}.has-light-green-cyan-to-vivid-green-cyan-gradient-background{background: var(--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan) !important;}.has-luminous-vivid-amber-to-luminous-vivid-orange-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange) !important;}.has-luminous-vivid-orange-to-vivid-red-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-orange-to-vivid-red) !important;}.has-very-light-gray-to-cyan-bluish-gray-gradient-background{background: var(--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray) !important;}.has-cool-to-warm-spectrum-gradient-background{background: var(--wp--preset--gradient--cool-to-warm-spectrum) !important;}.has-blush-light-purple-gradient-background{background: var(--wp--preset--gradient--blush-light-purple) !important;}.has-blush-bordeaux-gradient-background{background: var(--wp--preset--gradient--blush-bordeaux) !important;}.has-luminous-dusk-gradient-background{background: var(--wp--preset--gradient--luminous-dusk) !important;}.has-pale-ocean-gradient-background{background: var(--wp--preset--gradient--pale-ocean) !important;}.has-electric-grass-gradient-background{background: var(--wp--preset--gradient--electric-grass) !important;}.has-midnight-gradient-background{background: var(--wp--preset--gradient--midnight) !important;}.has-small-font-size{font-size: var(--wp--preset--font-size--small) !important;}.has-medium-font-size{font-size: var(--wp--preset--font-size--medium) !important;}.has-large-font-size{font-size: var(--wp--preset--font-size--large) !important;}.has-x-large-font-size{font-size: var(--wp--preset--font-size--x-large) !important;}
+.wp-block-navigation a:where(:not(.wp-element-button)){color: inherit;}
+:where(.wp-block-columns.is-layout-flex){gap: 2em;}
+.wp-block-pullquote{font-size: 1.5em;line-height: 1.6;}
+</style>
+<link data-minify="1" rel='stylesheet' id='hive-style-css' href='https://pixahive.com/wp-content/cache/min/1/wp-content/themes/hive/style.css?ver=1733547488' media='all' />
+<link data-minify="1" rel='stylesheet' id='hive-frontend-css' href='https://pixahive.com/wp-content/cache/min/1/wp-content/themes/hive/assets/css/frontend.css?ver=1733547488' media='all' />
+<link data-minify="1" rel='stylesheet' id='fontawesome-css' href='https://pixahive.com/wp-content/cache/min/1/wp-content/themes/hive/assets/libraries/font-awesome/css/font-awesome.min.css?ver=1733547488' media='all' />
+
+<link rel='stylesheet' id='um_modal-css' href='https://pixahive.com/wp-content/plugins/ultimate-member/assets/css/um-modal.min.css?ver=2.9.1' media='all' />
+<link rel='stylesheet' id='um_ui-css' href='https://pixahive.com/wp-content/plugins/ultimate-member/assets/libs/jquery-ui/jquery-ui.min.css?ver=1.13.2' media='all' />
+<link rel='stylesheet' id='um_tipsy-css' href='https://pixahive.com/wp-content/plugins/ultimate-member/assets/libs/tipsy/tipsy.min.css?ver=1.0.0a' media='all' />
+<link data-minify="1" rel='stylesheet' id='um_raty-css' href='https://pixahive.com/wp-content/cache/min/1/wp-content/plugins/ultimate-member/assets/libs/raty/um-raty.min.css?ver=1733547488' media='all' />
+<link rel='stylesheet' id='select2-css' href='https://pixahive.com/wp-content/plugins/ultimate-member/assets/libs/select2/select2.min.css?ver=4.0.13' media='all' />
+<link rel='stylesheet' id='um_fileupload-css' href='https://pixahive.com/wp-content/plugins/ultimate-member/assets/css/um-fileupload.min.css?ver=2.9.1' media='all' />
+<link rel='stylesheet' id='um_confirm-css' href='https://pixahive.com/wp-content/plugins/ultimate-member/assets/libs/um-confirm/um-confirm.min.css?ver=1.0' media='all' />
+<link rel='stylesheet' id='um_datetime-css' href='https://pixahive.com/wp-content/plugins/ultimate-member/assets/libs/pickadate/default.min.css?ver=3.6.2' media='all' />
+<link rel='stylesheet' id='um_datetime_date-css' href='https://pixahive.com/wp-content/plugins/ultimate-member/assets/libs/pickadate/default.date.min.css?ver=3.6.2' media='all' />
+<link rel='stylesheet' id='um_datetime_time-css' href='https://pixahive.com/wp-content/plugins/ultimate-member/assets/libs/pickadate/default.time.min.css?ver=3.6.2' media='all' />
+<link data-minify="1" rel='stylesheet' id='um_fonticons_ii-css' href='https://pixahive.com/wp-content/cache/min/1/wp-content/plugins/ultimate-member/assets/libs/legacy/fonticons/fonticons-ii.min.css?ver=1733547488' media='all' />
+<link data-minify="1" rel='stylesheet' id='um_fonticons_fa-css' href='https://pixahive.com/wp-content/cache/min/1/wp-content/plugins/ultimate-member/assets/libs/legacy/fonticons/fonticons-fa.min.css?ver=1733547488' media='all' />
+<link data-minify="1" rel='stylesheet' id='um_fontawesome-css' href='https://pixahive.com/wp-content/cache/min/1/wp-content/plugins/ultimate-member/assets/css/um-fontawesome.min.css?ver=1733547488' media='all' />
+<link rel='stylesheet' id='um_common-css' href='https://pixahive.com/wp-content/plugins/ultimate-member/assets/css/common.min.css?ver=2.9.1' media='all' />
+<link rel='stylesheet' id='um_responsive-css' href='https://pixahive.com/wp-content/plugins/ultimate-member/assets/css/um-responsive.min.css?ver=2.9.1' media='all' />
+<link rel='stylesheet' id='um_styles-css' href='https://pixahive.com/wp-content/plugins/ultimate-member/assets/css/um-styles.min.css?ver=2.9.1' media='all' />
+<link rel='stylesheet' id='um_crop-css' href='https://pixahive.com/wp-content/plugins/ultimate-member/assets/libs/cropper/cropper.min.css?ver=1.6.1' media='all' />
+<link rel='stylesheet' id='um_profile-css' href='https://pixahive.com/wp-content/plugins/ultimate-member/assets/css/um-profile.min.css?ver=2.9.1' media='all' />
+<link rel='stylesheet' id='um_account-css' href='https://pixahive.com/wp-content/plugins/ultimate-member/assets/css/um-account.min.css?ver=2.9.1' media='all' />
+<link rel='stylesheet' id='um_misc-css' href='https://pixahive.com/wp-content/plugins/ultimate-member/assets/css/um-misc.min.css?ver=2.9.1' media='all' />
+<link rel='stylesheet' id='um_default_css-css' href='https://pixahive.com/wp-content/plugins/ultimate-member/assets/css/um-old-default.min.css?ver=2.9.1' media='all' />
+<link data-minify="1" rel='stylesheet' id='jetpack_css-css' href='https://pixahive.com/wp-content/cache/min/1/wp-content/plugins/jetpack/css/jetpack.css?ver=1733547488' media='all' />
+<script type="rocketlazyloadscript" data-rocket-src='https://pixahive.com/wp-includes/js/jquery/jquery.min.js?ver=3.6.4' id='jquery-core-js'></script>
+<script type="rocketlazyloadscript" data-rocket-src='https://pixahive.com/wp-includes/js/jquery/jquery-migrate.min.js?ver=3.4.0' id='jquery-migrate-js' defer></script>
+<script id='wpstg-global-js-extra'>
+var wpstg = {"nonce":"06c6c8c1ca"};
+</script>
+<script type="rocketlazyloadscript" data-rocket-src='https://pixahive.com/wp-content/plugins/wp-staging/assets/js/dist/wpstg-blank-loader.min.js?ver=6.2.6' id='wpstg-global-js' defer></script>
+<script type="rocketlazyloadscript" data-rocket-src='https://pixahive.com/wp-content/plugins/ultimate-member/assets/js/um-gdpr.min.js?ver=2.9.1' id='um-gdpr-js' defer></script>
+<link rel="https://api.w.org/" href="https://pixahive.com/wp-json/" /><link rel="alternate" type="application/json" href="https://pixahive.com/wp-json/wp/v2/photo/65664" /><link rel="EditURI" type="application/rsd+xml" title="RSD" href="https://pixahive.com/xmlrpc.php?rsd" />
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="https://pixahive.com/wp-includes/wlwmanifest.xml" />
+<meta name="generator" content="WordPress 6.2.6" />
+<link rel='shortlink' href='https://pixahive.com/?p=65664' />
+<link rel="alternate" type="application/json+oembed" href="https://pixahive.com/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fpixahive.com%2Fphoto%2F__trashed-295%2F" />
+<link rel="alternate" type="text/xml+oembed" href="https://pixahive.com/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fpixahive.com%2Fphoto%2F__trashed-295%2F&#038;format=xml" />
+<meta name="cdp-version" content="1.3.9" />		<style type="text/css">
+			.um_request_name {
+				display: none !important;
+			}
+		</style>
+		<style>img#wpstats{display:none}</style>
+		<style>.recentcomments a{display:inline !important;padding:0 !important;margin:0 !important;}</style><!-- Facebook Pixel Code -->
+<script type="rocketlazyloadscript">
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '300695314564419');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=300695314564419&ev=PageView&noscript=1"
+/></noscript>
+<!-- End Facebook Pixel Code -->
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script type="rocketlazyloadscript" async data-rocket-src="https://www.googletagmanager.com/gtag/js?id=UA-176664151-1"></script>
+<script type="rocketlazyloadscript">
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-176664151-1');
+</script>
+
+
+
+		<style id="wp-custom-css">
+			div.wp-block-jetpack-whatsapp-button a.whatsapp-block__button {
+	padding-top: 12px !important;
+}
+
+.page-id-138663 .wp-block-buttons {
+	text-align: center;
+}
+#homepage-hero {
+    max-width: 95%;
+    border-radius: 50px;
+    margin: 0 auto;
+    display: inline-block;
+    width: 100%;
+	height:500px;
+}
+#homepage-hero .overlay{
+	border-radius: 50px;
+}
+#homepage-hero .hero-heading {
+    max-width: 100%;
+   text-align: center;
+}
+#homepage-hero .hero-heading span {
+    text-transform: uppercase;
+    font-size: 20px;
+}
+#homepage-hero .hero-heading h2 {
+    font-size: 58px;
+    line-height: 49px;
+	  margin-bottom: 30px;
+	margin-top: 0;
+}
+#homepage-hero #hero-search-form {
+    max-width: 100%;
+    float: none;
+    width: 100%;
+    text-align: center;
+	    margin-bottom: 25px;
+}
+#recommend-searches {
+    text-align: center;
+	font-size: 19px;
+    margin-top: 10px;
+}
+#recommend-searches strong{
+	font-size: 15px;
+    margin-right: 8px;
+}
+#recommend-searches a {
+    background: #000000;
+    padding: 5px 20px;
+    border-radius: 17px;
+    text-decoration: none;
+	    font-size: 15px;
+}
+#recommend-searches a:hover{
+	background-color: #678239;
+}
+.home-content h2 {
+    text-align: left;
+		margin-bottom: 7px;
+}
+.home-content p {
+    margin: 0;
+}
+#homepage-hero #hero-search-form input[type=search] {
+    padding: 20px 30px;
+    border: none;
+    border-left: 0;
+    border-radius: 60px;
+	width: 100%;
+}
+form.search {
+    width: 760px;
+    margin: 0 auto;
+    position: relative;
+}
+#homepage-hero #hero-search-form .fa-search {
+    left: inherit;
+    top: 50%;
+    position: absolute;
+    right: 35px;
+    width: 40px;
+    height: 40px;
+    background-color: #678239;
+    border-radius: 100px;
+    transform: translateY(-50%);
+    color: #fff;
+    font-size: 20px;
+    line-height: 38px;
+}
+#masthead {
+    display: inline-block;
+    width: 100%;
+}
+.home #masthead{
+	border:0;
+}
+.banner-bl{
+	width:100%;
+	display:inline-block;
+	text-align: center;
+}
+#masthead .container {
+    display: flex;
+    justify-content: space-between;
+	max-width: 95%;
+}
+.header-right {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+a.contact-btn {
+    background-color: #000;
+    color: #fff;
+    text-decoration: none;
+    padding: 10px 30px;
+    border-radius: 40px;
+}
+a.contact-btn:hover{
+	background-color: #678239;
+}
+ul#primary-menu li {
+    display: inline-block;
+}
+ul#primary-menu {
+    margin: 0;
+    padding: 0 0 0 12px;
+}
+#top-menu ul li a, #top-member-menu ul li a {
+    color: #7c7c7c;
+}
+.header-leftbar {
+    display: flex;
+    align-items: center;
+}
+.browse-all {
+    background: #000;
+    color: white;
+    display: inline-block;
+    padding: 15px 30px;
+    border-radius: 70px;
+}
+.browse-all:hover {
+    background: #75914B;
+}
+#homepage-hero .container {
+    top: 100px;
+}
+.contact-us-bl h2 {
+    font-size: 3rem;
+    position: relative;
+    padding-bottom: 14px;
+    margin-bottom: 0;
+}
+.contact-us-bl h2:after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    border-top: 5px #75914B solid;
+    height: 5px;
+    width: 127px;
+}
+.contact-us-bl h3 {
+    font-size: 2rem;
+    line-height: 3rem;
+    color: #444;
+    font-weight: 300;
+}
+.contact-us-bl .container{
+	display: flex;
+	align-items: center;
+	gap:10px;
+}
+.contact-w50 {
+    width: 50%;
+}
+.contact-location{
+	width:100%;
+	display:inline-block;
+	margin-top:70px;
+	padding: 0 4%;
+}
+.contact-location iframe{
+	border-radius:50px;
+}
+.contact-us-bl h4 {
+    font-size: 2rem;
+	    margin-bottom: 0;
+}
+.contact-us-bl p small {
+    font-size: 90%;
+}
+.Contact-form-bl_wrapper .name_first label,
+.Contact-form-bl_wrapper .name_last label{
+    display: none!important;
+}
+.Contact-form-bl_wrapper .ginput_container input,
+.Contact-form-bl_wrapper .ginput_container textarea{
+	background-color:#fff;
+	 border: 0;
+	border-bottom:1px #C2C2C2 solid;
+	border-radius:0;
+	font-weight: 600;
+  color: #000;
+	&::placeholder{
+		color: #000;
+	}
+}
+.Contact-form-bl_wrapper .ginput_container textarea.medium {
+        height: 99px;
+    }
+.gform_button {
+    background-color: #000!important;
+    border-radius: 109px!important;
+    padding: 10px 30px!important;
+    width: 200px!important;
+    height: 55px;
+}
+.contact-us-bl {
+    padding-top: 70px;
+}
+.gform_button:hover{
+	background-color: #75914B!important;
+}
+.contact-info{
+	padding:50px 0!important;
+}
+.contact-info .container{
+	align-items: flex-start;
+}
+.contact-info .contact-w50:first-child {
+    padding-right: 50px;
+}
+.photo-template-bl{
+	max-width:95%;
+}
+.photo-template-bl .pagination {
+    width: 100%;
+    display: inline-block;
+    text-align: center;
+	padding:50px 0;
+}
+.pagination a, .pagination span {
+    background: #000;
+    padding: 10px 20px;
+    display: inline-block;
+    border-radius: 50px;
+    color: #fff;
+    text-decoration: none;
+}
+.pagination a:hover, .pagination span:hover{
+	background: #75914B;
+}
+.blog .md-4,
+.blog .md-8{
+    width: 100%;
+}
+.blog .posts-grid {
+    width: 33%;
+    float: left;
+}
+.blog a.post-thumbnail {
+    height: 270px;
+    width: 100%;
+    display: inline-block;
+    overflow: hidden;
+}
+.blog a.post-thumbnail img {
+    border-radius: 10px;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.blog .posts-grid h2 {
+    margin-top: 10px;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+	    font-size: 25px;
+    line-height: 35px;
+	min-height:70px;
+}
+.blog .entry-content p {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+#page-header {
+    background: #fff;
+    text-align: center;
+    margin-bottom: 0;
+	padding: 30px 0;
+}
+#page-header h1 {
+    color: #28375a;
+	   font-weight: 800;
+    font-size: 1.8em;
+}
+/* member page css */
+#list-of-users .author-block-inner {
+    background: #fff;
+    border: solid 1px #eee;
+    border-radius: 10px;
+}
+#list-of-users .author-block {
+    overflow: visible;
+	padding-top: 100px !important;
+}
+#list-of-users .author-images img {
+    width: 65px;
+    height: 65px;
+}
+#list-of-users .user-name {
+    font-size: 22px;
+}
+#list-of-users .avatar img {
+    border-radius: 100px;
+    margin-top: -100px;
+}
+#list-of-users .view-portfolio {
+    padding: 11px 20px;
+    margin-top: 3px;
+    color: white;
+    background: #000;
+    font-size: 13px;
+    border-radius: 100px;
+}
+#list-of-users .view-portfolio:hover,
+#list-of-users .author-block-inner:hover .view-portfolio{
+	background: #75914B;
+}
+a.uploaded-view-portfolio {
+    color: #222;
+    text-decoration: none;
+    width: 100%;
+    display: inline-block;
+}
+#list-of-users .author-block-inner .author-images {
+    padding: 10px 0 18px;
+}
+#list-of-users .author-block-inner:hover{
+	-webkit-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.1);
+-moz-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.1);
+box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.1);
+}
+.page-template-page-fes-vendor-list .entry-header .container {
+    display: flex;
+      justify-content: space-between;
+			align-items: center;
+}
+.page-template-page-fes-vendor-list #page-header h1 {
+    margin: 0;
+}
+.page-template-page-fes-vendor-list  .fes-contributor-list {
+    padding: 0;
+    padding-bottom: 0;
+    margin-bottom: 0;
+}
+.fes-contributor-list input[type=text] {
+    padding: 14px 30px !important;
+    border: 1px #e0dfdc solid;
+    background-color: #fff;
+    border-radius: 100px;
+}
+.fes-contributor-list .fa-search {
+    position: relative;
+    right: 49px;
+    background-color: #6b8438;
+    padding: 5px;
+    border-radius: 100px;
+    font-size: 13px;
+}
+.dashboard-header header.entry-header {
+    text-align: left;
+}
+p.welcome-user {
+    display: block;
+    margin-top: -19px;
+    margin-bottom: 0;
+    color: #000;
+}
+#pixahive-dashboard .dashboard-menu {
+    border-radius: 20px;
+    background: #fff;
+    padding: 20px;
+    margin-bottom: 0;
+    text-align: left;
+    border: 1px #d2d2d2 solid;
+}
+#list-of-users .user-name {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+p.login-username label,
+ p.login-password label {
+    width: 100%;
+    display: inline-block;
+    margin-bottom: 4px;
+}
+p.login-username input,
+p.login-password input {
+    width: 100%;
+}
+form#loginform {
+    width: 700px;
+    margin: auto;
+    background-color: #fff;
+    border-radius: 15px;
+    padding: 30px;
+}
+form#loginform p {
+    margin-bottom: 10px;
+}
+form#loginform button, form#loginform input[type=submit] {
+    background: #000;
+    color: white;
+    font-weight: bold;
+    padding: 10px 35px;
+    border: none;
+    text-shadow: none;
+    border-radius: 100px;
+    display: inline-block;
+    height: 47px;
+}
+
+@media only screen and (min-width: 768px) and (max-width: 900px) {
+	
+	#top-menu ul li a, #top-member-menu ul li a {
+    padding: 6px 8px !important;
+    font-size: 14px !important;
+}
+	form.search {
+    width: 600px !important;
+   
+}
+.info-rightbl {
+    width: 100% !important;
+  
+}	
+	
+}
+#mobile-sidebar{
+	display:none;
+}
+@media only screen and (max-width: 767px) {
+	#mobile-sidebar{
+	display:block!important;
+}
+	#mobile-menu-icons a:last-child {
+    display: none !important;
+}
+	a.toggle-menu {
+    float: right !important;
+}
+	#mobile-menu-icons a {
+
+    float: right;
+}
+	
+	
+	form.search {
+    width: 100% !important;
+}
+	.header-right {
+    display: none !important;
+   
+}
+	
+	.home-image .image-box {
+    padding: 5px 0 !important;
+   
+}
+	
+.author-bl {
+    width: 100% !important;
+    display: inline-block !important;
+    padding: 0 15px !important;
+}
+	.info-rightbl {
+    width: 100% !important;
+    
+}
+	.info-leftbl {
+    width: 100% !important;
+}
+	.aboutus-bl {
+    padding: 20px 0 40px !important;
+}
+	.blog .posts-grid {
+    width: 100% !important;
+   
+}
+	.contact-us-bl {
+    padding-top: 20px !important;
+}
+	.contact-us-bl h2 {
+    font-size: 30px !important;
+    margin: 0 !important;
+}
+	
+	
+}
+
+@media only screen and (max-width: 600px) {
+	
+
+	
+#homepage-hero .hero-heading span {
+    
+    font-size: 16px;
+}
+	#homepage-hero .hero-heading h2 {
+    font-size: 40px;
+    line-height: 38px;
+    margin-bottom: 20px;
+ 
+}
+	#homepage-hero #hero-search-form input[type=search] {
+    padding: 15px 20px !important;
+    font-size: 13px !important;
+}
+	#homepage-hero #hero-search-form .fa-search {
+    right: 9px;
+    width: 35px;
+    height: 35px;
+    font-size: 15px;
+    line-height: 35px;
+}
+	#homepage-hero {
+    max-width: 95%;
+    border-radius: 50px;
+    margin: 0 auto;
+    display: inline-block;
+    width: 100%;
+    height: 100% !important;
+    padding:50px 0 !important;
+}
+	#homepage-hero .container {
+    top: 0 !important;
+}
+	
+	#recommend-searches a {
+    font-size: 12px !important;
+    margin: 3px 1px !important;
+    display: inline-block;
+}
+	#homepage-hero #hero-search-form {
+  
+    margin-bottom: 10px !important;
+}
+	
+.home-content {
+    padding: 30px 0 !important;
+}	
+	.home-content h2 {
+    font-size: 25px !important;
+    margin: 0;
+}
+	.home-content p {
+    font-size: 14px;
+    line-height: 22px;
+}
+
+	.about-info {
+    width: 100%;
+
+}
+	.aboutus-bl {
+    padding: 20px 0 40px !important;
+}
+	.aboutus-bl h1 {
+  
+    font-size: 22px !important;
+}
+	.info-rightbl {
+    width: 100% !important;
+    display: inline-block !important;
+}
+	.pixahive-author-img {
+    width: 100% !important;
+}
+	.pixahive-author-info {
+    width: 100% !important;
+    padding: 10px 0 !important;
+}
+	.black-article-info {
+    width: 100% !important;
+}
+	.about-content {
+    padding: 40px 15px !important;
+   
+}
+	
+	.about-info {
+    width: 100% !important;
+    display:inline-block !important;
+		text-align:center !important;
+}
+	.contact-w50 {
+    width: 100% !important;
+}
+	.contact-us-bl h3 {
+    font-size: 15px !important;
+    line-height: 25px !important;
+    
+}
+	.contact-location {
+    width: 100% !important;
+    margin-top: 30px;
+    padding: 0 15px;
+}
+	.contact-info .container {
+
+    display: inline-block !important;
+}
+	.contact-info {
+    padding: 20px 0!important;
+}
+	.contact-us-bl h4 {
+    font-size: 25px !important;
+   
+}
+	.contact-us-bl .container {
+    display: inline-block !important;
+    
+}
+	.gform_legacy_markup_wrapper input:not([type=radio]):not([type=checkbox]):not([type=image]):not([type=file]) {
+   
+    min-height: 1rem !important;
+    font-size: 13px !important;
+}
+	.gform_legacy_markup_wrapper .top_label .gfield_label, .gform_legacy_markup_wrapper legend.gfield_label {
+   
+    font-size: 13px !important;
+}
+	.contact-us-bl h3 br {
+    display: none !important;
+}
+.page-template-page-fes-vendor-list .entry-header .container {
+    display: inline-block;
+    width: 100% !important;
+}
+.fes-contributor-list input[type=text] {
+   
+    width: 300px !important;
+}	
+	
+	
+}
+.um-page-register .um-form,
+.um-page-login .um-form,
+body.um-page.um-page-password-reset .um-form{
+    width: 500px;
+    margin: auto;
+    background-color: #fff;
+    border-radius: 15px;
+    padding: 30px;
+}
+body.um-page.um-page-password-reset {
+    background-color: #f4f4ff!important;
+}
+body.um-page.um-page-password-reset #page-header {
+    background: transparent;
+}
+#respond .comment-form-author input, #respond .comment-form-email input, #respond .comment-form-url input, #respond .comment-form-comment input, #respond .comment-form-author textarea, #respond .comment-form-email textarea, #respond .comment-form-url textarea, #respond .comment-form-comment textarea,
+#respond input[type=email]{
+    background-color: #fff;
+}
+.tax-download_tag .site-main .container,
+.tax-supertag .site-main .container{
+    max-width: 95%;
+}
+.single-header .entry-meta a,
+span.posted-on{
+    color: #000;
+	font-size: 13px;
+}
+input[type="text"], input[type="email"], input[type="password"], .solid-input input, textarea, #edd_profile_editor_form .mayosel-select, #edd_checkout_form_wrap .mayosel-select {
+    border-color: #75914B!important;
+}
+.title-portfolio {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.page-template-page-view-portfolio  h1 span {
+    font-size: 16px;
+    font-weight: normal;
+}
+.page-template-page-view-portfolio h1 {
+    line-height: 28px;
+}
+.page-template-page-view-portfolio .container {
+    max-width: 95%;
+    padding: 0;
+}
+.page-template-page-view-portfolio .pagination {
+    display: inline-block;
+    width: 100%;
+    text-align: center;
+    padding: 30px 0;
+}
+.page-template-page-view-portfolio .grid {
+    padding-bottom: 70px;
+}
+.custom-upload .ginput_complex.ginput_container.ginput_container_post_image{
+    border: 2px #ccc dotted;
+    padding: 20px 20px;
+    border-radius: 20px;
+    height: 190px;
+}
+#top-search-form input[type=search] {
+    border-color: #EAEDF6;
+    background: #EAEDF6;
+    padding: 8px 30px;
+    border-radius: 60px;
+}
+#top-search-form form.search {
+    width: 100%;
+}
+#top-search-form .fa-search {
+    left: inherit;
+    top: 50%;
+    position: absolute;
+    right: 15px;
+    width: 25px;
+    height: 25px;
+    background-color: #678239;
+    border-radius: 100px;
+    transform: translateY(-50%);
+    color: #fff;
+    font-size: 14px;
+    line-height: 24px;
+    text-align: center;
+}		</style>
+		<noscript><style id="rocket-lazyload-nojs-css">.rll-youtube-player, [data-lazy-src]{display:none !important;}</style></noscript></head>
+
+<body class="photo-template-default single single-photo postid-65664">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 0 0" width="0" height="0" focusable="false" role="none" style="visibility: hidden; position: absolute; left: -9999px; overflow: hidden;" ><defs><filter id="wp-duotone-dark-grayscale"><feColorMatrix color-interpolation-filters="sRGB" type="matrix" values=" .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 " /><feComponentTransfer color-interpolation-filters="sRGB" ><feFuncR type="table" tableValues="0 0.49803921568627" /><feFuncG type="table" tableValues="0 0.49803921568627" /><feFuncB type="table" tableValues="0 0.49803921568627" /><feFuncA type="table" tableValues="1 1" /></feComponentTransfer><feComposite in2="SourceGraphic" operator="in" /></filter></defs></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 0 0" width="0" height="0" focusable="false" role="none" style="visibility: hidden; position: absolute; left: -9999px; overflow: hidden;" ><defs><filter id="wp-duotone-grayscale"><feColorMatrix color-interpolation-filters="sRGB" type="matrix" values=" .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 " /><feComponentTransfer color-interpolation-filters="sRGB" ><feFuncR type="table" tableValues="0 1" /><feFuncG type="table" tableValues="0 1" /><feFuncB type="table" tableValues="0 1" /><feFuncA type="table" tableValues="1 1" /></feComponentTransfer><feComposite in2="SourceGraphic" operator="in" /></filter></defs></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 0 0" width="0" height="0" focusable="false" role="none" style="visibility: hidden; position: absolute; left: -9999px; overflow: hidden;" ><defs><filter id="wp-duotone-purple-yellow"><feColorMatrix color-interpolation-filters="sRGB" type="matrix" values=" .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 " /><feComponentTransfer color-interpolation-filters="sRGB" ><feFuncR type="table" tableValues="0.54901960784314 0.98823529411765" /><feFuncG type="table" tableValues="0 1" /><feFuncB type="table" tableValues="0.71764705882353 0.25490196078431" /><feFuncA type="table" tableValues="1 1" /></feComponentTransfer><feComposite in2="SourceGraphic" operator="in" /></filter></defs></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 0 0" width="0" height="0" focusable="false" role="none" style="visibility: hidden; position: absolute; left: -9999px; overflow: hidden;" ><defs><filter id="wp-duotone-blue-red"><feColorMatrix color-interpolation-filters="sRGB" type="matrix" values=" .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 " /><feComponentTransfer color-interpolation-filters="sRGB" ><feFuncR type="table" tableValues="0 1" /><feFuncG type="table" tableValues="0 0.27843137254902" /><feFuncB type="table" tableValues="0.5921568627451 0.27843137254902" /><feFuncA type="table" tableValues="1 1" /></feComponentTransfer><feComposite in2="SourceGraphic" operator="in" /></filter></defs></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 0 0" width="0" height="0" focusable="false" role="none" style="visibility: hidden; position: absolute; left: -9999px; overflow: hidden;" ><defs><filter id="wp-duotone-midnight"><feColorMatrix color-interpolation-filters="sRGB" type="matrix" values=" .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 " /><feComponentTransfer color-interpolation-filters="sRGB" ><feFuncR type="table" tableValues="0 0" /><feFuncG type="table" tableValues="0 0.64705882352941" /><feFuncB type="table" tableValues="0 1" /><feFuncA type="table" tableValues="1 1" /></feComponentTransfer><feComposite in2="SourceGraphic" operator="in" /></filter></defs></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 0 0" width="0" height="0" focusable="false" role="none" style="visibility: hidden; position: absolute; left: -9999px; overflow: hidden;" ><defs><filter id="wp-duotone-magenta-yellow"><feColorMatrix color-interpolation-filters="sRGB" type="matrix" values=" .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 " /><feComponentTransfer color-interpolation-filters="sRGB" ><feFuncR type="table" tableValues="0.78039215686275 1" /><feFuncG type="table" tableValues="0 0.94901960784314" /><feFuncB type="table" tableValues="0.35294117647059 0.47058823529412" /><feFuncA type="table" tableValues="1 1" /></feComponentTransfer><feComposite in2="SourceGraphic" operator="in" /></filter></defs></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 0 0" width="0" height="0" focusable="false" role="none" style="visibility: hidden; position: absolute; left: -9999px; overflow: hidden;" ><defs><filter id="wp-duotone-purple-green"><feColorMatrix color-interpolation-filters="sRGB" type="matrix" values=" .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 " /><feComponentTransfer color-interpolation-filters="sRGB" ><feFuncR type="table" tableValues="0.65098039215686 0.40392156862745" /><feFuncG type="table" tableValues="0 1" /><feFuncB type="table" tableValues="0.44705882352941 0.4" /><feFuncA type="table" tableValues="1 1" /></feComponentTransfer><feComposite in2="SourceGraphic" operator="in" /></filter></defs></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 0 0" width="0" height="0" focusable="false" role="none" style="visibility: hidden; position: absolute; left: -9999px; overflow: hidden;" ><defs><filter id="wp-duotone-blue-orange"><feColorMatrix color-interpolation-filters="sRGB" type="matrix" values=" .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 " /><feComponentTransfer color-interpolation-filters="sRGB" ><feFuncR type="table" tableValues="0.098039215686275 1" /><feFuncG type="table" tableValues="0 0.66274509803922" /><feFuncB type="table" tableValues="0.84705882352941 0.41960784313725" /><feFuncA type="table" tableValues="1 1" /></feComponentTransfer><feComposite in2="SourceGraphic" operator="in" /></filter></defs></svg>
+
+<div id="page" class="site">
+
+	<header id="masthead" class="site-header">
+		<div class="container">
+			<div class="header-leftbar">
+			<div class="site-branding">
+				<a href="https://pixahive.com" rel="home">
+					<picture>
+						<source data-lazy-srcset="https://pixahive.com/wp-content/themes/hive/assets/images/logo-a.webp" type="image/webp">
+						<source data-lazy-srcset="https://pixahive.com/wp-content/themes/hive/assets/images/logo-a.jpg" type="image/jpeg">
+						<img id="site-logo" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%200%200'%3E%3C/svg%3E" alt="pixahive logo" data-lazy-src="https://pixahive.com/wp-content/themes/hive/assets/images/logo-a.jpg"><noscript><img id="site-logo" src="https://pixahive.com/wp-content/themes/hive/assets/images/logo-a.jpg" alt="pixahive logo"></noscript>
+					</picture>
+				</a>
+			</div>
+			<nav id="top-menu">
+				
+				<div class="menu-main-menu-container"><ul id="primary-menu" class="menu"><li id="menu-item-454060" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-454060"><a href="https://pixahive.com/about-us/">About Us</a></li>
+<li id="menu-item-6254" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-6254"><a href="https://pixahive.com/our-members/">Our Members</a></li>
+<li id="menu-item-464" class="menu-item menu-item-type-post_type menu-item-object-page current_page_parent menu-item-464"><a href="https://pixahive.com/blog/">Blog</a></li>
+<li id="menu-item-6253" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-6253"><a href="#">Menu</a>
+<ul class="sub-menu">
+	<li id="menu-item-6257" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-6257"><a href="https://pixahive.com/photos/">Browse All Photos</a></li>
+	<li id="menu-item-6256" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-6256"><a href="https://pixahive.com/guidelines/">Guidelines for Image Submission</a></li>
+	<li id="menu-item-29800" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-29800"><a href="https://pixahive.com/contests/">Photography Contests</a></li>
+</ul>
+</li>
+</ul></div>			</nav>
+			</div>
+			
+			<div id="mobile-menu-icons">
+				<a class="toggle-menu" href="#"><i class="fa fa-bars"></i></a>
+								<a href="https://pixahive.com/login/"><i class="fa fa-user"></i></a>
+				<a id="open-search" href="#"><i class="fa fa-search"></i></a>
+			</div>
+			
+						<div id="top-search-wrapper">
+				<div id="top-search-form"><form class="search" action="https://pixahive.com/">
+  <i class="fa fa-search"></i>
+  <input type="search" name="s" placeholder="Search for free photos&hellip;">
+  
+    
+  <input type="submit" value="Search">
+  <input type="hidden" name="post_type" value="photo">
+ 
+</form></div>
+			</div>
+						
+ 
+			
+<!-- 			<div id="top-social-links">
+				<a class="top-social-icon fb" target="_blank" href="https://facebook.com/pixahive/"><i class="fa fa-fw fa-facebook"></i></a>
+				<a class="top-social-icon ig" target="_blank" href="https://instagram.com/pixahive/"><i class="fa fa-fw fa-instagram"></i></a>
+				<a class="top-social-icon wa" target="_blank" rel="nofollow" href="https://wa.me/%2B918284056576?text=Hello"><i class="fa fa-fw fa-whatsapp"></i></a>
+			</div> -->
+			
+			<div class="header-right">
+			<nav id="top-member-menu">
+									<a href="https://pixahive.com/register/"><i class="fa fa-user"></i> Login / Register</a>
+					
+			</nav>
+				<a href="https://pixahive.com/contact-us/" class="contact-btn"> Contact Us</a>
+			</div>
+						
+			
+			
+			
+			
+		
+	</header><!-- #masthead -->
+
+	<main id="primary" class="site-main">
+		<div class="photo-single-wrapper">
+			<div class="container">
+				
+				<div class="photo-box md-8">
+															<div class="main-post-image">
+																	                            	                            <picture>
+						        	<source 
+									    data-lazy-srcset="https://i0.wp.com/pixahive.com/wp-content/uploads/2020/09/Codding-of-computer-language-65664-pixahive.jpg?fit=778%2C586&ssl=1, https://i0.wp.com/pixahive.com/wp-content/uploads/2020/09/Codding-of-computer-language-65664-pixahive.jpg?fit=1560%2C1175&ssl=1 2x"
+									    media="(min-width: 992px)"
+									  />
+									  <source 
+									    data-lazy-srcset="https://i0.wp.com/pixahive.com/wp-content/uploads/2020/09/Codding-of-computer-language-65664-pixahive.jpg?fit=992%2C747&ssl=1, https://i0.wp.com/pixahive.com/wp-content/uploads/2020/09/Codding-of-computer-language-65664-pixahive.jpg?fit=1500%2C1130&ssl=1 2x"
+									    media="(min-width: 768px)"
+									  />
+						        	<source 
+									    data-lazy-srcset="https://i0.wp.com/pixahive.com/wp-content/uploads/2020/09/Codding-of-computer-language-65664-pixahive.jpg?fit=550%2C414&ssl=1"
+									    media="(min-width: 550px)"
+									 />
+						        	<source 
+									    data-lazy-srcset="https://i0.wp.com/pixahive.com/wp-content/uploads/2020/09/Codding-of-computer-language-65664-pixahive.jpg?fit=450%2C339&ssl=1"
+									    media="(min-width: 450px)"
+									 />
+									<source 
+									    data-lazy-srcset="https://i0.wp.com/pixahive.com/wp-content/uploads/2020/09/Codding-of-computer-language-65664-pixahive.jpg?fit=400%2C301&ssl=1"
+									    media="(min-width: 400px)"
+									/>
+									<source 
+									    data-lazy-srcset="https://i0.wp.com/pixahive.com/wp-content/uploads/2020/09/Codding-of-computer-language-65664-pixahive.jpg?fit=350%2C263&ssl=1"
+									    media="(min-width: 350px)"
+									/>
+									<source 
+									    data-lazy-srcset="https://i0.wp.com/pixahive.com/wp-content/uploads/2020/09/Codding-of-computer-language-65664-pixahive.jpg?fit=320%2C241&ssl=1"
+									    media="(min-width: 320px)"
+									/>
+									<source 
+									    data-lazy-srcset="https://i0.wp.com/pixahive.com/wp-content/uploads/2020/09/Codding-of-computer-language-65664-pixahive.jpg?fit=320%2C241&ssl=1"
+									    media="(max-width: 319px)"
+									/>
+									<img 
+									    src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%200%200'%3E%3C/svg%3E" 
+									    alt="Codding of computer language"
+									    class="featured-img img-responsive"
+								 data-lazy-src="https://pixahive.com/wp-content/uploads/2020/09/Codding-of-computer-language-65664-pixahive.jpg"	/><noscript><img 
+									    src="https://pixahive.com/wp-content/uploads/2020/09/Codding-of-computer-language-65664-pixahive.jpg" 
+									    alt="Codding of computer language"
+									    class="featured-img img-responsive"
+									/></noscript>
+						        </picture>
+	                             <script type="application/ld+json">
+									{
+									  "@context": "http://schema.org",
+									  "@type": "ImageObject",
+									  "author": "Mandeep Singh",
+									  "contentUrl": "https://pixahive.com/wp-content/uploads/2020/09/Codding-of-computer-language-65664-pixahive.jpg",
+									  "name": "Codding of computer language",
+									  "license": "https://creativecommons.org/share-your-work/public-domain/cc0/",
+									  "acquireLicensePage": "https://pixahive.com/photo/__trashed-295/"
+									}
+								</script>   
+					</div>
+		
+									</div>
+				<div class="photo-details md-4">
+					<h1>Codding of computer language</h1>
+					<div class="uploaded-on">Uploaded On 29 September, 2020</div>
+					
+					<div class="download-box">
+	                    <form id="download_image" method="post">
+	                        <input type="radio" name="dsize" value="low" checked="checked"> Small (300px) <br />
+	                        <input type="radio" name="dsize" value="med"> Medium (768px) <br />
+	                        <input type="radio" name="dsize" value="high"> High (1024px) <br />
+	                        <input type="radio" name="dsize" value="v-high"> Original File <br />
+	                        <input type="hidden" id="postid" name="id" value="65664">
+	                        <input type="hidden" name="security" value="b3379646f1" />
+	                        <input type="submit" class="btn-download-image" value="Download">
+	                    </form>
+	                </div>
+					
+					<div class="photographer-meta">
+						<div class="user-details">
+							<div class="user-avatar">
+								<img src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2040%2040'%3E%3C/svg%3E" class="gravatar avatar avatar-40 um-avatar um-avatar-default" width="40" height="40" alt="Mandeep Singh" data-default="https://pixahive.com/wp-content/plugins/ultimate-member/assets/img/default_avatar.jpg" onerror="if ( ! this.getAttribute('data-load-error') ){ this.setAttribute('data-load-error', '1');this.setAttribute('src', this.getAttribute('data-default'));}" data-lazy-src="https://pixahive.com/wp-content/plugins/ultimate-member/assets/img/default_avatar.jpg" /><noscript><img src="https://pixahive.com/wp-content/plugins/ultimate-member/assets/img/default_avatar.jpg" class="gravatar avatar avatar-40 um-avatar um-avatar-default" width="40" height="40" alt="Mandeep Singh" data-default="https://pixahive.com/wp-content/plugins/ultimate-member/assets/img/default_avatar.jpg" onerror="if ( ! this.getAttribute('data-load-error') ){ this.setAttribute('data-load-error', '1');this.setAttribute('src', this.getAttribute('data-default'));}" loading="lazy" /></noscript>							</div>
+							<div class="user-name">
+								<small>photograph by <br /></small>
+																<Strong>Mandeep Singh</Strong>
+							</div>
+						</div>
+												<div class="portfolio-link">
+							<a href="/view-portfolio/?username=391">View Portfolio</a>
+						</div>
+					</div>
+					
+					<div class="photo-license-information">
+						<div class="license-inner">
+															<h3><i class="fa fa-check-square"></i> License</h3>
+								<p>CC0 - Free to Use, Attribution Optional</p>
+													</div>
+					</div>
+				</div><!--.photo-details-->								
+								
+			</div><!--.container-->
+		</div><!--wrapper-->
+			
+				
+		<div class="wrapper-tags">
+			<div class="container">
+				<div class="tags">
+					<h2>Image Tags</h2>
+					<div class="all-image-tags">
+					<a class="tag-link" href="https://pixahive.com/download_tag/binary-language/">binary language</a><a class="tag-link" href="https://pixahive.com/download_tag/codding/">Codding</a><a class="tag-link" href="https://pixahive.com/download_tag/computer-language/">Computer language</a><a class="tag-link" href="https://pixahive.com/download_tag/numbers/">numbers</a><a class="tag-link" href="https://pixahive.com/download_tag/programming/">Programming</a><a class="tag-link" href="https://pixahive.com/download_tag/software/">Software</a>					</div>
+				</div><!--.tags-->
+				<div class="related-images">
+					<h2>Similar Images</h2>
+					
+					<div class="related-images-grid">
+									                    				                        <div class="related-image" data-w="2560" data-h="1708">
+						                    <a href="https://pixahive.com/photo/a-computer-mouse/">
+					                            					                            <picture>
+										        	<source 
+													    data-lazy-srcset="https://i0.wp.com/pixahive.com/wp-content/uploads/2021/03/A-computer-mouse-397695-pixahive.jpg?fit=500%2C333&ssl=1, https://i0.wp.com/pixahive.com/wp-content/uploads/2021/03/A-computer-mouse-397695-pixahive.jpg?fit=1000%2C667&ssl=1 2x"
+													    media="(min-width: 500px)"
+													  />
+										        	<source 
+													    data-lazy-srcset="https://i0.wp.com/pixahive.com/wp-content/uploads/2021/03/A-computer-mouse-397695-pixahive.jpg?fit=450%2C300&ssl=1"
+													    media="(min-width: 450px)"
+													  />
+													<source 
+													    data-lazy-srcset="https://i0.wp.com/pixahive.com/wp-content/uploads/2021/03/A-computer-mouse-397695-pixahive.jpg?fit=400%2C266&ssl=1"
+													    media="(min-width: 400px)"
+													/>
+													<source 
+													    data-lazy-srcset="https://i0.wp.com/pixahive.com/wp-content/uploads/2021/03/A-computer-mouse-397695-pixahive.jpg?fit=350%2C233&ssl=1"
+													    media="(min-width: 350px)"
+													/>
+													<source 
+													    data-lazy-srcset="https://i0.wp.com/pixahive.com/wp-content/uploads/2021/03/A-computer-mouse-397695-pixahive.jpg?fit=320%2C213&ssl=1"
+													    media="(min-width: 320px)"
+													/>
+													<source 
+													    data-lazy-srcset="https://i0.wp.com/pixahive.com/wp-content/uploads/2021/03/A-computer-mouse-397695-pixahive.jpg?fit=320%2C213&ssl=1"
+													    media="(max-width: 319px)"
+													/>
+													<img 
+													    src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%200%200'%3E%3C/svg%3E" 
+													    alt="A computer mouse"
+												 data-lazy-src="https://pixahive.com/wp-content/uploads/2021/03/A-computer-mouse-397695-pixahive.jpg"	/><noscript><img 
+													    src="https://pixahive.com/wp-content/uploads/2021/03/A-computer-mouse-397695-pixahive.jpg" 
+													    alt="A computer mouse"
+													/></noscript>
+										        </picture>
+					                        </a>
+					                        <script type="application/ld+json">
+												{
+												  "@context": "http://schema.org",
+												  "@type": "ImageObject",
+												  "contentUrl": "https://pixahive.com/wp-content/uploads/2021/03/A-computer-mouse-397695-pixahive.jpg",
+												  "name": "A computer mouse",
+												  "license": "https://creativecommons.org/share-your-work/public-domain/cc0/",
+												  "acquireLicensePage": "https://pixahive.com/photo/a-computer-mouse/"
+												}
+											</script>
+				                        </div>
+												                        <div class="related-image" data-w="2560" data-h="1440">
+						                    <a href="https://pixahive.com/photo/__trashed-30077/">
+					                            					                            <picture>
+										        	<source 
+													    data-lazy-srcset="https://i0.wp.com/pixahive.com/wp-content/uploads/2021/02/A-laptop-359709-pixahive.jpg?fit=500%2C281&ssl=1, https://i0.wp.com/pixahive.com/wp-content/uploads/2021/02/A-laptop-359709-pixahive.jpg?fit=1000%2C562&ssl=1 2x"
+													    media="(min-width: 500px)"
+													  />
+										        	<source 
+													    data-lazy-srcset="https://i0.wp.com/pixahive.com/wp-content/uploads/2021/02/A-laptop-359709-pixahive.jpg?fit=450%2C253&ssl=1"
+													    media="(min-width: 450px)"
+													  />
+													<source 
+													    data-lazy-srcset="https://i0.wp.com/pixahive.com/wp-content/uploads/2021/02/A-laptop-359709-pixahive.jpg?fit=400%2C225&ssl=1"
+													    media="(min-width: 400px)"
+													/>
+													<source 
+													    data-lazy-srcset="https://i0.wp.com/pixahive.com/wp-content/uploads/2021/02/A-laptop-359709-pixahive.jpg?fit=350%2C196&ssl=1"
+													    media="(min-width: 350px)"
+													/>
+													<source 
+													    data-lazy-srcset="https://i0.wp.com/pixahive.com/wp-content/uploads/2021/02/A-laptop-359709-pixahive.jpg?fit=320%2C180&ssl=1"
+													    media="(min-width: 320px)"
+													/>
+													<source 
+													    data-lazy-srcset="https://i0.wp.com/pixahive.com/wp-content/uploads/2021/02/A-laptop-359709-pixahive.jpg?fit=320%2C180&ssl=1"
+													    media="(max-width: 319px)"
+													/>
+													<img 
+													    src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%200%200'%3E%3C/svg%3E" 
+													    alt="A laptop"
+												 data-lazy-src="https://pixahive.com/wp-content/uploads/2021/02/A-laptop-359709-pixahive.jpg"	/><noscript><img 
+													    src="https://pixahive.com/wp-content/uploads/2021/02/A-laptop-359709-pixahive.jpg" 
+													    alt="A laptop"
+													/></noscript>
+										        </picture>
+					                        </a>
+					                        <script type="application/ld+json">
+												{
+												  "@context": "http://schema.org",
+												  "@type": "ImageObject",
+												  "contentUrl": "https://pixahive.com/wp-content/uploads/2021/02/A-laptop-359709-pixahive.jpg",
+												  "name": "A laptop",
+												  "license": "https://creativecommons.org/share-your-work/public-domain/cc0/",
+												  "acquireLicensePage": "https://pixahive.com/photo/__trashed-30077/"
+												}
+											</script>
+				                        </div>
+												                        <div class="related-image" data-w="2560" data-h="1920">
+						                    <a href="https://pixahive.com/photo/mouse-device-of-a-desktop-computer/">
+					                            					                            <picture>
+										        	<source 
+													    data-lazy-srcset="https://i0.wp.com/pixahive.com/wp-content/uploads/2020/12/Mouse-device-of-a-desktop-computer-262238-pixahive.jpg?fit=500%2C375&ssl=1, https://i0.wp.com/pixahive.com/wp-content/uploads/2020/12/Mouse-device-of-a-desktop-computer-262238-pixahive.jpg?fit=1000%2C750&ssl=1 2x"
+													    media="(min-width: 500px)"
+													  />
+										        	<source 
+													    data-lazy-srcset="https://i0.wp.com/pixahive.com/wp-content/uploads/2020/12/Mouse-device-of-a-desktop-computer-262238-pixahive.jpg?fit=450%2C337&ssl=1"
+													    media="(min-width: 450px)"
+													  />
+													<source 
+													    data-lazy-srcset="https://i0.wp.com/pixahive.com/wp-content/uploads/2020/12/Mouse-device-of-a-desktop-computer-262238-pixahive.jpg?fit=400%2C300&ssl=1"
+													    media="(min-width: 400px)"
+													/>
+													<source 
+													    data-lazy-srcset="https://i0.wp.com/pixahive.com/wp-content/uploads/2020/12/Mouse-device-of-a-desktop-computer-262238-pixahive.jpg?fit=350%2C262&ssl=1"
+													    media="(min-width: 350px)"
+													/>
+													<source 
+													    data-lazy-srcset="https://i0.wp.com/pixahive.com/wp-content/uploads/2020/12/Mouse-device-of-a-desktop-computer-262238-pixahive.jpg?fit=320%2C240&ssl=1"
+													    media="(min-width: 320px)"
+													/>
+													<source 
+													    data-lazy-srcset="https://i0.wp.com/pixahive.com/wp-content/uploads/2020/12/Mouse-device-of-a-desktop-computer-262238-pixahive.jpg?fit=320%2C240&ssl=1"
+													    media="(max-width: 319px)"
+													/>
+													<img 
+													    src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%200%200'%3E%3C/svg%3E" 
+													    alt="Mouse device of a desktop computer"
+												 data-lazy-src="https://pixahive.com/wp-content/uploads/2020/12/Mouse-device-of-a-desktop-computer-262238-pixahive.jpg"	/><noscript><img 
+													    src="https://pixahive.com/wp-content/uploads/2020/12/Mouse-device-of-a-desktop-computer-262238-pixahive.jpg" 
+													    alt="Mouse device of a desktop computer"
+													/></noscript>
+										        </picture>
+					                        </a>
+					                        <script type="application/ld+json">
+												{
+												  "@context": "http://schema.org",
+												  "@type": "ImageObject",
+												  "contentUrl": "https://pixahive.com/wp-content/uploads/2020/12/Mouse-device-of-a-desktop-computer-262238-pixahive.jpg",
+												  "name": "Mouse device of a desktop computer",
+												  "license": "https://creativecommons.org/share-your-work/public-domain/cc0/",
+												  "acquireLicensePage": "https://pixahive.com/photo/mouse-device-of-a-desktop-computer/"
+												}
+											</script>
+				                        </div>
+												                        <div class="related-image" data-w="1920" data-h="2560">
+						                    <a href="https://pixahive.com/photo/keyboard-and-mouse/">
+					                            					                            <picture>
+										        	<source 
+													    data-lazy-srcset="https://i0.wp.com/pixahive.com/wp-content/uploads/2020/11/Keyboard-and-mouse-209032-pixahive.jpg?fit=500%2C666&ssl=1, https://i0.wp.com/pixahive.com/wp-content/uploads/2020/11/Keyboard-and-mouse-209032-pixahive.jpg?fit=1000%2C1333&ssl=1 2x"
+													    media="(min-width: 500px)"
+													  />
+										        	<source 
+													    data-lazy-srcset="https://i0.wp.com/pixahive.com/wp-content/uploads/2020/11/Keyboard-and-mouse-209032-pixahive.jpg?fit=450%2C600&ssl=1"
+													    media="(min-width: 450px)"
+													  />
+													<source 
+													    data-lazy-srcset="https://i0.wp.com/pixahive.com/wp-content/uploads/2020/11/Keyboard-and-mouse-209032-pixahive.jpg?fit=400%2C533&ssl=1"
+													    media="(min-width: 400px)"
+													/>
+													<source 
+													    data-lazy-srcset="https://i0.wp.com/pixahive.com/wp-content/uploads/2020/11/Keyboard-and-mouse-209032-pixahive.jpg?fit=350%2C466&ssl=1"
+													    media="(min-width: 350px)"
+													/>
+													<source 
+													    data-lazy-srcset="https://i0.wp.com/pixahive.com/wp-content/uploads/2020/11/Keyboard-and-mouse-209032-pixahive.jpg?fit=320%2C426&ssl=1"
+													    media="(min-width: 320px)"
+													/>
+													<source 
+													    data-lazy-srcset="https://i0.wp.com/pixahive.com/wp-content/uploads/2020/11/Keyboard-and-mouse-209032-pixahive.jpg?fit=320%2C426&ssl=1"
+													    media="(max-width: 319px)"
+													/>
+													<img 
+													    src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%200%200'%3E%3C/svg%3E" 
+													    alt="Keyboard and mouse"
+												 data-lazy-src="https://pixahive.com/wp-content/uploads/2020/11/Keyboard-and-mouse-209032-pixahive.jpg"	/><noscript><img 
+													    src="https://pixahive.com/wp-content/uploads/2020/11/Keyboard-and-mouse-209032-pixahive.jpg" 
+													    alt="Keyboard and mouse"
+													/></noscript>
+										        </picture>
+					                        </a>
+					                        <script type="application/ld+json">
+												{
+												  "@context": "http://schema.org",
+												  "@type": "ImageObject",
+												  "contentUrl": "https://pixahive.com/wp-content/uploads/2020/11/Keyboard-and-mouse-209032-pixahive.jpg",
+												  "name": "Keyboard and mouse",
+												  "license": "https://creativecommons.org/share-your-work/public-domain/cc0/",
+												  "acquireLicensePage": "https://pixahive.com/photo/keyboard-and-mouse/"
+												}
+											</script>
+				                        </div>
+												                        <div class="related-image" data-w="1920" data-h="2560">
+						                    <a href="https://pixahive.com/photo/mouse-3/">
+					                            					                            <picture>
+										        	<source 
+													    data-lazy-srcset="https://i0.wp.com/pixahive.com/wp-content/uploads/2020/11/Mouse-210154-pixahive.jpg?fit=500%2C666&ssl=1, https://i0.wp.com/pixahive.com/wp-content/uploads/2020/11/Mouse-210154-pixahive.jpg?fit=1000%2C1333&ssl=1 2x"
+													    media="(min-width: 500px)"
+													  />
+										        	<source 
+													    data-lazy-srcset="https://i0.wp.com/pixahive.com/wp-content/uploads/2020/11/Mouse-210154-pixahive.jpg?fit=450%2C600&ssl=1"
+													    media="(min-width: 450px)"
+													  />
+													<source 
+													    data-lazy-srcset="https://i0.wp.com/pixahive.com/wp-content/uploads/2020/11/Mouse-210154-pixahive.jpg?fit=400%2C533&ssl=1"
+													    media="(min-width: 400px)"
+													/>
+													<source 
+													    data-lazy-srcset="https://i0.wp.com/pixahive.com/wp-content/uploads/2020/11/Mouse-210154-pixahive.jpg?fit=350%2C466&ssl=1"
+													    media="(min-width: 350px)"
+													/>
+													<source 
+													    data-lazy-srcset="https://i0.wp.com/pixahive.com/wp-content/uploads/2020/11/Mouse-210154-pixahive.jpg?fit=320%2C426&ssl=1"
+													    media="(min-width: 320px)"
+													/>
+													<source 
+													    data-lazy-srcset="https://i0.wp.com/pixahive.com/wp-content/uploads/2020/11/Mouse-210154-pixahive.jpg?fit=320%2C426&ssl=1"
+													    media="(max-width: 319px)"
+													/>
+													<img 
+													    src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%200%200'%3E%3C/svg%3E" 
+													    alt="computer mouse"
+												 data-lazy-src="https://pixahive.com/wp-content/uploads/2020/11/Mouse-210154-pixahive.jpg"	/><noscript><img 
+													    src="https://pixahive.com/wp-content/uploads/2020/11/Mouse-210154-pixahive.jpg" 
+													    alt="computer mouse"
+													/></noscript>
+										        </picture>
+					                        </a>
+					                        <script type="application/ld+json">
+												{
+												  "@context": "http://schema.org",
+												  "@type": "ImageObject",
+												  "contentUrl": "https://pixahive.com/wp-content/uploads/2020/11/Mouse-210154-pixahive.jpg",
+												  "name": "Mouse",
+												  "license": "https://creativecommons.org/share-your-work/public-domain/cc0/",
+												  "acquireLicensePage": "https://pixahive.com/photo/mouse-3/"
+												}
+											</script>
+				                        </div>
+												                        <div class="related-image" data-w="1920" data-h="2560">
+						                    <a href="https://pixahive.com/photo/a-desktop-system/">
+					                            					                            <picture>
+										        	<source 
+													    data-lazy-srcset="https://i0.wp.com/pixahive.com/wp-content/uploads/2020/11/A-desktop-system-209038-pixahive.jpg?fit=500%2C666&ssl=1, https://i0.wp.com/pixahive.com/wp-content/uploads/2020/11/A-desktop-system-209038-pixahive.jpg?fit=1000%2C1333&ssl=1 2x"
+													    media="(min-width: 500px)"
+													  />
+										        	<source 
+													    data-lazy-srcset="https://i0.wp.com/pixahive.com/wp-content/uploads/2020/11/A-desktop-system-209038-pixahive.jpg?fit=450%2C600&ssl=1"
+													    media="(min-width: 450px)"
+													  />
+													<source 
+													    data-lazy-srcset="https://i0.wp.com/pixahive.com/wp-content/uploads/2020/11/A-desktop-system-209038-pixahive.jpg?fit=400%2C533&ssl=1"
+													    media="(min-width: 400px)"
+													/>
+													<source 
+													    data-lazy-srcset="https://i0.wp.com/pixahive.com/wp-content/uploads/2020/11/A-desktop-system-209038-pixahive.jpg?fit=350%2C466&ssl=1"
+													    media="(min-width: 350px)"
+													/>
+													<source 
+													    data-lazy-srcset="https://i0.wp.com/pixahive.com/wp-content/uploads/2020/11/A-desktop-system-209038-pixahive.jpg?fit=320%2C426&ssl=1"
+													    media="(min-width: 320px)"
+													/>
+													<source 
+													    data-lazy-srcset="https://i0.wp.com/pixahive.com/wp-content/uploads/2020/11/A-desktop-system-209038-pixahive.jpg?fit=320%2C426&ssl=1"
+													    media="(max-width: 319px)"
+													/>
+													<img 
+													    src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%200%200'%3E%3C/svg%3E" 
+													    alt="A desktop system"
+												 data-lazy-src="https://pixahive.com/wp-content/uploads/2020/11/A-desktop-system-209038-pixahive.jpg"	/><noscript><img 
+													    src="https://pixahive.com/wp-content/uploads/2020/11/A-desktop-system-209038-pixahive.jpg" 
+													    alt="A desktop system"
+													/></noscript>
+										        </picture>
+					                        </a>
+					                        <script type="application/ld+json">
+												{
+												  "@context": "http://schema.org",
+												  "@type": "ImageObject",
+												  "contentUrl": "https://pixahive.com/wp-content/uploads/2020/11/A-desktop-system-209038-pixahive.jpg",
+												  "name": "A desktop system",
+												  "license": "https://creativecommons.org/share-your-work/public-domain/cc0/",
+												  "acquireLicensePage": "https://pixahive.com/photo/a-desktop-system/"
+												}
+											</script>
+				                        </div>
+												                        <div class="related-image" data-w="1920" data-h="2560">
+						                    <a href="https://pixahive.com/photo/flatlay-12/">
+					                            					                            <picture>
+										        	<source 
+													    data-lazy-srcset="https://i0.wp.com/pixahive.com/wp-content/uploads/2020/11/Flatlay-210143-pixahive.jpg?fit=500%2C666&ssl=1, https://i0.wp.com/pixahive.com/wp-content/uploads/2020/11/Flatlay-210143-pixahive.jpg?fit=1000%2C1333&ssl=1 2x"
+													    media="(min-width: 500px)"
+													  />
+										        	<source 
+													    data-lazy-srcset="https://i0.wp.com/pixahive.com/wp-content/uploads/2020/11/Flatlay-210143-pixahive.jpg?fit=450%2C600&ssl=1"
+													    media="(min-width: 450px)"
+													  />
+													<source 
+													    data-lazy-srcset="https://i0.wp.com/pixahive.com/wp-content/uploads/2020/11/Flatlay-210143-pixahive.jpg?fit=400%2C533&ssl=1"
+													    media="(min-width: 400px)"
+													/>
+													<source 
+													    data-lazy-srcset="https://i0.wp.com/pixahive.com/wp-content/uploads/2020/11/Flatlay-210143-pixahive.jpg?fit=350%2C466&ssl=1"
+													    media="(min-width: 350px)"
+													/>
+													<source 
+													    data-lazy-srcset="https://i0.wp.com/pixahive.com/wp-content/uploads/2020/11/Flatlay-210143-pixahive.jpg?fit=320%2C426&ssl=1"
+													    media="(min-width: 320px)"
+													/>
+													<source 
+													    data-lazy-srcset="https://i0.wp.com/pixahive.com/wp-content/uploads/2020/11/Flatlay-210143-pixahive.jpg?fit=320%2C426&ssl=1"
+													    media="(max-width: 319px)"
+													/>
+													<img 
+													    src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%200%200'%3E%3C/svg%3E" 
+													    alt="Flatlay"
+												 data-lazy-src="https://pixahive.com/wp-content/uploads/2020/11/Flatlay-210143-pixahive.jpg"	/><noscript><img 
+													    src="https://pixahive.com/wp-content/uploads/2020/11/Flatlay-210143-pixahive.jpg" 
+													    alt="Flatlay"
+													/></noscript>
+										        </picture>
+					                        </a>
+					                        <script type="application/ld+json">
+												{
+												  "@context": "http://schema.org",
+												  "@type": "ImageObject",
+												  "contentUrl": "https://pixahive.com/wp-content/uploads/2020/11/Flatlay-210143-pixahive.jpg",
+												  "name": "Flatlay",
+												  "license": "https://creativecommons.org/share-your-work/public-domain/cc0/",
+												  "acquireLicensePage": "https://pixahive.com/photo/flatlay-12/"
+												}
+											</script>
+				                        </div>
+												                        <div class="related-image" data-w="1920" data-h="2560">
+						                    <a href="https://pixahive.com/photo/a-laptop-and-headphone/">
+					                            					                            <picture>
+										        	<source 
+													    data-lazy-srcset="https://i0.wp.com/pixahive.com/wp-content/uploads/2020/11/Flatlay-209036-pixahive.jpg?fit=500%2C666&ssl=1, https://i0.wp.com/pixahive.com/wp-content/uploads/2020/11/Flatlay-209036-pixahive.jpg?fit=1000%2C1333&ssl=1 2x"
+													    media="(min-width: 500px)"
+													  />
+										        	<source 
+													    data-lazy-srcset="https://i0.wp.com/pixahive.com/wp-content/uploads/2020/11/Flatlay-209036-pixahive.jpg?fit=450%2C600&ssl=1"
+													    media="(min-width: 450px)"
+													  />
+													<source 
+													    data-lazy-srcset="https://i0.wp.com/pixahive.com/wp-content/uploads/2020/11/Flatlay-209036-pixahive.jpg?fit=400%2C533&ssl=1"
+													    media="(min-width: 400px)"
+													/>
+													<source 
+													    data-lazy-srcset="https://i0.wp.com/pixahive.com/wp-content/uploads/2020/11/Flatlay-209036-pixahive.jpg?fit=350%2C466&ssl=1"
+													    media="(min-width: 350px)"
+													/>
+													<source 
+													    data-lazy-srcset="https://i0.wp.com/pixahive.com/wp-content/uploads/2020/11/Flatlay-209036-pixahive.jpg?fit=320%2C426&ssl=1"
+													    media="(min-width: 320px)"
+													/>
+													<source 
+													    data-lazy-srcset="https://i0.wp.com/pixahive.com/wp-content/uploads/2020/11/Flatlay-209036-pixahive.jpg?fit=320%2C426&ssl=1"
+													    media="(max-width: 319px)"
+													/>
+													<img 
+													    src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%200%200'%3E%3C/svg%3E" 
+													    alt="A laptop and headphone"
+												 data-lazy-src="https://pixahive.com/wp-content/uploads/2020/11/Flatlay-209036-pixahive.jpg"	/><noscript><img 
+													    src="https://pixahive.com/wp-content/uploads/2020/11/Flatlay-209036-pixahive.jpg" 
+													    alt="A laptop and headphone"
+													/></noscript>
+										        </picture>
+					                        </a>
+					                        <script type="application/ld+json">
+												{
+												  "@context": "http://schema.org",
+												  "@type": "ImageObject",
+												  "contentUrl": "https://pixahive.com/wp-content/uploads/2020/11/Flatlay-209036-pixahive.jpg",
+												  "name": "A laptop and headphone",
+												  "license": "https://creativecommons.org/share-your-work/public-domain/cc0/",
+												  "acquireLicensePage": "https://pixahive.com/photo/a-laptop-and-headphone/"
+												}
+											</script>
+				                        </div>
+									
+					</div><!--relatedimagesgrid-->	
+				</div>
+				
+				<div class="exif-data">
+										<h2 class="section-title">EXIF Data</h2>
+										<div class="exif-section col-md-4">
+						<strong>Camera : </strong> SM-M307F 					</div>
+					
+					<div class="exif-section col-md-4">
+						<strong>Aperture : </strong> 2					</div>
+					
+					<div class="exif-section col-md-4">
+						<strong>Focal Length : </strong> 4.6					</div>
+					
+					<div class="exif-section col-md-4">
+						<strong>ISO : </strong> 552					</div>
+					
+					<div class="exif-section col-md-4">
+						<strong>Shutter Speed : </strong> 1/25					</div>
+					
+					<div class="exif-section col-md-4">
+						<strong>Timestamp: </strong> 16 Sep 2020 @ 4:16 pm					</div>
+									</div>
+				
+			</div>
+		</div>
+		
+		<div class="wrapper-tags wrapper-comments">
+			<div class="container">
+				
+<div id="comments" class="comments-area">
+
+		<div id="respond" class="comment-respond">
+		<h3 id="reply-title" class="comment-reply-title">Leave a Reply <small><a rel="nofollow" id="cancel-comment-reply-link" href="/photo/__trashed-295/#respond" style="display:none;">Cancel reply</a></small></h3><form action="https://pixahive.com/wp-comments-post.php" method="post" id="commentform" class="comment-form" novalidate><p class="comment-notes"><span id="email-notes">Your email address will not be published.</span> <span class="required-field-message">Required fields are marked <span class="required">*</span></span></p><p class="comment-form-comment"><label for="comment">Comment <span class="required">*</span></label> <textarea id="comment" name="comment" cols="45" rows="8" maxlength="65525" required></textarea></p><p class="comment-form-author"><label for="author">Name <span class="required">*</span></label> <input id="author" name="author" type="text" value="" size="30" maxlength="245" autocomplete="name" required /></p>
+<p class="comment-form-email"><label for="email">Email <span class="required">*</span></label> <input id="email" name="email" type="email" value="" size="30" maxlength="100" aria-describedby="email-notes" autocomplete="email" required /></p>
+<p class="comment-form-url"><label for="url">Website</label> <input id="url" name="url" type="url" value="" size="30" maxlength="200" autocomplete="url" /></p>
+<p class="comment-form-cookies-consent"><input id="wp-comment-cookies-consent" name="wp-comment-cookies-consent" type="checkbox" value="yes" /> <label for="wp-comment-cookies-consent">Save my name, email, and website in this browser for the next time I comment.</label></p>
+<p class="form-submit"><input name="submit" type="submit" id="submit" class="submit" value="Post Comment" /> <input type='hidden' name='comment_post_ID' value='65664' id='comment_post_ID' />
+<input type='hidden' name='comment_parent' id='comment_parent' value='0' />
+</p><p style="display: none;"><input type="hidden" id="akismet_comment_nonce" name="akismet_comment_nonce" value="d68db02573" /></p><p style="display: none !important;" class="akismet-fields-container" data-prefix="ak_"><label>&#916;<textarea name="ak_hp_textarea" cols="45" rows="8" maxlength="100"></textarea></label><input type="hidden" id="ak_js_1" name="ak_js" value="131"/><script type="rocketlazyloadscript">document.getElementById( "ak_js_1" ).setAttribute( "value", ( new Date() ).getTime() );</script></p></form>	</div><!-- #respond -->
+	
+</div><!-- #comments -->
+			</div>
+		</div>
+		
+		
+		
+	</main><!-- #main -->
+
+
+	<footer id="colophon" class="site-footer">
+		<div class="container">
+			<div class="site-info md-4">
+				© Pixahive.com - 2020. Some Rights Reserved.
+			</div><!-- .site-info -->
+			<div id="footer-menu-wrapper" class="md-8">
+				<div class="menu-footer-menu-container"><ul id="footer-menu" class="menu"><li id="menu-item-454061" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home menu-item-454061"><a href="https://pixahive.com/">Home</a></li>
+<li id="menu-item-4872" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4872"><a href="https://pixahive.com/about-us/">About Us</a></li>
+<li id="menu-item-4873" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4873"><a href="https://pixahive.com/contact-us/">Contact Us</a></li>
+<li id="menu-item-4875" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4875"><a href="https://pixahive.com/privacy-policy/">Privacy Policy</a></li>
+<li id="menu-item-4876" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4876"><a href="https://pixahive.com/terms/">Terms &amp; Conditions</a></li>
+</ul></div>			</div>
+		</div>
+	</footer><!-- #colophon -->
+	
+	<div id="mobile-sidebar">
+		<div class="footer-branding">
+				<a href="https://pixahive.com" rel="home">
+					<picture>
+						<source data-lazy-srcset="https://pixahive.com/wp-content/themes/hive/assets/images/pixahive-dark-logo-min.webp" type="image/webp">
+						<source data-lazy-srcset="https://pixahive.com/wp-content/themes/hive/assets/images/pixahive-dark-logo-min.jpg" type="image/jpeg">
+						<img id="site-logo" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%200%200'%3E%3C/svg%3E" alt="pixahive logo dark" data-lazy-src="https://pixahive.com/wp-content/themes/hive/assets/images/pixahive-dark-logo-min.jpg"><noscript><img id="site-logo" src="https://pixahive.com/wp-content/themes/hive/assets/images/pixahive-dark-logo-min.jpg" alt="pixahive logo dark"></noscript>
+					</picture>
+					
+					</a>
+				<a class="toggle-menu" href="#"><i class="fa fa-fw fa-plus"></i></a>
+			</div>
+			
+			<a target="_blank" href="https://instagram.com/pixahive/" class="social-link ig"><i class="fa fa-fw fa-instagram"></i> Follow @pixahive</a>
+			<a target="_blank" href="https://facebook.com/pixahive/" class="social-link fb"><i class="fa fa-fw fa-facebook-square"></i> Our Facebook Page</a>
+			<a target="_blank" rel="nofollow" href="https://wa.me/%2B918284056576?text=Hello" class="social-link wa"><i class="fa fa-fw fa-whatsapp"></i> Message on WhatsApp</a>
+		<div class="menu-mobile-menu-container"><ul id="sidebar-menu" class="menu"><li id="menu-item-3242" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home menu-item-3242"><a href="https://pixahive.com/">Home</a></li>
+<li id="menu-item-6323" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-6323"><a href="https://pixahive.com/photos/">Photos</a></li>
+<li id="menu-item-454261" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-454261"><a href="/account/">My Dashboard</a></li>
+<li id="menu-item-3240" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3240"><a href="https://pixahive.com/login/">Login / Register</a></li>
+<li id="menu-item-3243" class="menu-item menu-item-type-post_type menu-item-object-page current_page_parent menu-item-3243"><a href="https://pixahive.com/blog/">Blog</a></li>
+<li id="menu-item-3241" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3241"><a href="https://pixahive.com/contact-us/">Contact Us</a></li>
+<li id="menu-item-6321" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-6321"><a href="https://pixahive.com/guidelines/">Guidelines for Image Submission</a></li>
+<li id="menu-item-6322" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-6322"><a href="https://pixahive.com/our-members/">Our Members</a></li>
+<li id="menu-item-140094" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-140094"><a href="https://pixahive.com/contests/">Photography Contests</a></li>
+<li id="menu-item-454167" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-454167"><a href="https://pixahive.com/about-us">About Us</a></li>
+</ul></div>	</div>
+</div><!-- #page -->
+
+
+
+<div id="um_upload_single" style="display:none;"></div>
+
+<div id="um_view_photo" style="display:none;">
+	<a href="javascript:void(0);" data-action="um_remove_modal" class="um-modal-close" aria-label="Close view photo modal">
+		<i class="um-faicon-times"></i>
+	</a>
+
+	<div class="um-modal-body photo">
+		<div class="um-modal-photo"></div>
+	</div>
+</div>
+<script type="rocketlazyloadscript" data-rocket-src='https://pixahive.com/wp-content/plugins/jetpack/_inc/build/photon/photon.min.js?ver=20191001' id='jetpack-photon-js' defer></script>
+<script type="rocketlazyloadscript" id='rocket-browser-checker-js-after'>
+"use strict";var _createClass=function(){function defineProperties(target,props){for(var i=0;i<props.length;i++){var descriptor=props[i];descriptor.enumerable=descriptor.enumerable||!1,descriptor.configurable=!0,"value"in descriptor&&(descriptor.writable=!0),Object.defineProperty(target,descriptor.key,descriptor)}}return function(Constructor,protoProps,staticProps){return protoProps&&defineProperties(Constructor.prototype,protoProps),staticProps&&defineProperties(Constructor,staticProps),Constructor}}();function _classCallCheck(instance,Constructor){if(!(instance instanceof Constructor))throw new TypeError("Cannot call a class as a function")}var RocketBrowserCompatibilityChecker=function(){function RocketBrowserCompatibilityChecker(options){_classCallCheck(this,RocketBrowserCompatibilityChecker),this.passiveSupported=!1,this._checkPassiveOption(this),this.options=!!this.passiveSupported&&options}return _createClass(RocketBrowserCompatibilityChecker,[{key:"_checkPassiveOption",value:function(self){try{var options={get passive(){return!(self.passiveSupported=!0)}};window.addEventListener("test",null,options),window.removeEventListener("test",null,options)}catch(err){self.passiveSupported=!1}}},{key:"initRequestIdleCallback",value:function(){!1 in window&&(window.requestIdleCallback=function(cb){var start=Date.now();return setTimeout(function(){cb({didTimeout:!1,timeRemaining:function(){return Math.max(0,50-(Date.now()-start))}})},1)}),!1 in window&&(window.cancelIdleCallback=function(id){return clearTimeout(id)})}},{key:"isDataSaverModeOn",value:function(){return"connection"in navigator&&!0===navigator.connection.saveData}},{key:"supportsLinkPrefetch",value:function(){var elem=document.createElement("link");return elem.relList&&elem.relList.supports&&elem.relList.supports("prefetch")&&window.IntersectionObserver&&"isIntersecting"in IntersectionObserverEntry.prototype}},{key:"isSlowConnection",value:function(){return"connection"in navigator&&"effectiveType"in navigator.connection&&("2g"===navigator.connection.effectiveType||"slow-2g"===navigator.connection.effectiveType)}}]),RocketBrowserCompatibilityChecker}();
+</script>
+<script id='rocket-preload-links-js-extra'>
+var RocketPreloadLinksConfig = {"excludeUris":"\/login\/|\/register\/|\/dashboard\/|\/tagger-2\/|\/pending\/|\/trash\/|\/(?:.+\/)?feed(?:\/(?:.+\/?)?)?$|\/(?:.+\/)?embed\/|(.*)\/__trashed-295\/|\/(index\\.php\/)?(.*)wp\\-json(\/.*|$)|\/refer\/|\/go\/|\/recommend\/|\/recommends\/","usesTrailingSlash":"1","imageExt":"jpg|jpeg|gif|png|tiff|bmp|webp|avif|pdf|doc|docx|xls|xlsx|php","fileExt":"jpg|jpeg|gif|png|tiff|bmp|webp|avif|pdf|doc|docx|xls|xlsx|php|html|htm","siteUrl":"https:\/\/pixahive.com","onHoverDelay":"100","rateThrottle":"3"};
+</script>
+<script type="rocketlazyloadscript" id='rocket-preload-links-js-after'>
+(function() {
+"use strict";var r="function"==typeof Symbol&&"symbol"==typeof Symbol.iterator?function(e){return typeof e}:function(e){return e&&"function"==typeof Symbol&&e.constructor===Symbol&&e!==Symbol.prototype?"symbol":typeof e},e=function(){function i(e,t){for(var n=0;n<t.length;n++){var i=t[n];i.enumerable=i.enumerable||!1,i.configurable=!0,"value"in i&&(i.writable=!0),Object.defineProperty(e,i.key,i)}}return function(e,t,n){return t&&i(e.prototype,t),n&&i(e,n),e}}();function i(e,t){if(!(e instanceof t))throw new TypeError("Cannot call a class as a function")}var t=function(){function n(e,t){i(this,n),this.browser=e,this.config=t,this.options=this.browser.options,this.prefetched=new Set,this.eventTime=null,this.threshold=1111,this.numOnHover=0}return e(n,[{key:"init",value:function(){!this.browser.supportsLinkPrefetch()||this.browser.isDataSaverModeOn()||this.browser.isSlowConnection()||(this.regex={excludeUris:RegExp(this.config.excludeUris,"i"),images:RegExp(".("+this.config.imageExt+")$","i"),fileExt:RegExp(".("+this.config.fileExt+")$","i")},this._initListeners(this))}},{key:"_initListeners",value:function(e){-1<this.config.onHoverDelay&&document.addEventListener("mouseover",e.listener.bind(e),e.listenerOptions),document.addEventListener("mousedown",e.listener.bind(e),e.listenerOptions),document.addEventListener("touchstart",e.listener.bind(e),e.listenerOptions)}},{key:"listener",value:function(e){var t=e.target.closest("a"),n=this._prepareUrl(t);if(null!==n)switch(e.type){case"mousedown":case"touchstart":this._addPrefetchLink(n);break;case"mouseover":this._earlyPrefetch(t,n,"mouseout")}}},{key:"_earlyPrefetch",value:function(t,e,n){var i=this,r=setTimeout(function(){if(r=null,0===i.numOnHover)setTimeout(function(){return i.numOnHover=0},1e3);else if(i.numOnHover>i.config.rateThrottle)return;i.numOnHover++,i._addPrefetchLink(e)},this.config.onHoverDelay);t.addEventListener(n,function e(){t.removeEventListener(n,e,{passive:!0}),null!==r&&(clearTimeout(r),r=null)},{passive:!0})}},{key:"_addPrefetchLink",value:function(i){return this.prefetched.add(i.href),new Promise(function(e,t){var n=document.createElement("link");n.rel="prefetch",n.href=i.href,n.onload=e,n.onerror=t,document.head.appendChild(n)}).catch(function(){})}},{key:"_prepareUrl",value:function(e){if(null===e||"object"!==(void 0===e?"undefined":r(e))||!1 in e||-1===["http:","https:"].indexOf(e.protocol))return null;var t=e.href.substring(0,this.config.siteUrl.length),n=this._getPathname(e.href,t),i={original:e.href,protocol:e.protocol,origin:t,pathname:n,href:t+n};return this._isLinkOk(i)?i:null}},{key:"_getPathname",value:function(e,t){var n=t?e.substring(this.config.siteUrl.length):e;return n.startsWith("/")||(n="/"+n),this._shouldAddTrailingSlash(n)?n+"/":n}},{key:"_shouldAddTrailingSlash",value:function(e){return this.config.usesTrailingSlash&&!e.endsWith("/")&&!this.regex.fileExt.test(e)}},{key:"_isLinkOk",value:function(e){return null!==e&&"object"===(void 0===e?"undefined":r(e))&&(!this.prefetched.has(e.href)&&e.origin===this.config.siteUrl&&-1===e.href.indexOf("?")&&-1===e.href.indexOf("#")&&!this.regex.excludeUris.test(e.href)&&!this.regex.images.test(e.href))}}],[{key:"run",value:function(){"undefined"!=typeof RocketPreloadLinksConfig&&new n(new RocketBrowserCompatibilityChecker({capture:!0,passive:!0}),RocketPreloadLinksConfig).init()}}]),n}();t.run();
+}());
+</script>
+<script type="rocketlazyloadscript" data-minify="1" data-rocket-src='https://pixahive.com/wp-content/cache/min/1/wp-content/themes/hive/assets/js/similarimages.js?ver=1733547488' id='similar-images-js' defer></script>
+<script type="rocketlazyloadscript" data-rocket-src='https://pixahive.com/wp-content/themes/hive/assets/js/bigslide.min.js?ver=6.2.6' id='bigslide-js' defer></script>
+<script type="rocketlazyloadscript" data-minify="1" data-rocket-src='https://pixahive.com/wp-content/cache/min/1/wp-content/themes/hive/assets/js/custom.js?ver=1733547488' id='custom-hive-js' defer></script>
+<script type="rocketlazyloadscript" data-rocket-src='https://www.google.com/recaptcha/api.js?ver=6.2.6' id='g-recaptcha-js'></script>
+<script id='download-file-js-extra'>
+var download_file_ajax_object = {"ajaxurl":"https:\/\/pixahive.com\/wp-admin\/admin-ajax.php"};
+</script>
+<script type="rocketlazyloadscript" data-rocket-src='https://pixahive.com/wp-content/themes/hive/assets/js/download.js?ver=1737524875' id='download-file-js' defer></script>
+<script type="rocketlazyloadscript" data-rocket-src='https://pixahive.com/wp-includes/js/comment-reply.min.js?ver=6.2.6' id='comment-reply-js' defer></script>
+<script id='image-moderation-js-js-extra'>
+var ajax_object = {"ajaxurl":"https:\/\/pixahive.com\/wp-admin\/admin-ajax.php","ajaxnonce":"38df15f89f"};
+</script>
+<script type="rocketlazyloadscript" data-minify="1" data-rocket-src='https://pixahive.com/wp-content/cache/min/1/wp-content/themes/hive/assets/js/image-moderation.js?ver=1733547488' id='image-moderation-js-js' defer></script>
+<script type="rocketlazyloadscript" data-rocket-src='https://pixahive.com/wp-includes/js/underscore.min.js?ver=1.13.4' id='underscore-js' defer></script>
+<script id='wp-util-js-extra'>
+var _wpUtilSettings = {"ajax":{"url":"\/wp-admin\/admin-ajax.php"}};
+</script>
+<script type="rocketlazyloadscript" data-rocket-src='https://pixahive.com/wp-includes/js/wp-util.min.js?ver=6.2.6' id='wp-util-js' defer></script>
+<script type="rocketlazyloadscript" data-rocket-src='https://pixahive.com/wp-includes/js/dist/vendor/wp-polyfill-inert.min.js?ver=3.1.2' id='wp-polyfill-inert-js' defer></script>
+<script type="rocketlazyloadscript" data-rocket-src='https://pixahive.com/wp-includes/js/dist/vendor/regenerator-runtime.min.js?ver=0.13.11' id='regenerator-runtime-js' defer></script>
+<script type="rocketlazyloadscript" data-rocket-src='https://pixahive.com/wp-includes/js/dist/vendor/wp-polyfill.min.js?ver=3.15.0' id='wp-polyfill-js'></script>
+<script type="rocketlazyloadscript" data-rocket-src='https://pixahive.com/wp-includes/js/dist/hooks.min.js?ver=4169d3cf8e8d95a3d6d5' id='wp-hooks-js'></script>
+<script type="rocketlazyloadscript" data-rocket-src='https://pixahive.com/wp-includes/js/dist/i18n.min.js?ver=9e794f35a71bb98672ae' id='wp-i18n-js'></script>
+<script type="rocketlazyloadscript" id='wp-i18n-js-after'>
+wp.i18n.setLocaleData( { 'text direction\u0004ltr': [ 'ltr' ] } );
+</script>
+<script type="rocketlazyloadscript" data-rocket-src='https://pixahive.com/wp-content/plugins/ultimate-member/assets/libs/tipsy/tipsy.min.js?ver=1.0.0a' id='um_tipsy-js' defer></script>
+<script type="rocketlazyloadscript" data-rocket-src='https://pixahive.com/wp-content/plugins/ultimate-member/assets/libs/um-confirm/um-confirm.min.js?ver=1.0' id='um_confirm-js' defer></script>
+<script type="rocketlazyloadscript" data-rocket-src='https://pixahive.com/wp-content/plugins/ultimate-member/assets/libs/pickadate/picker.min.js?ver=3.6.2' id='um_datetime-js' defer></script>
+<script type="rocketlazyloadscript" data-rocket-src='https://pixahive.com/wp-content/plugins/ultimate-member/assets/libs/pickadate/picker.date.min.js?ver=3.6.2' id='um_datetime_date-js' defer></script>
+<script type="rocketlazyloadscript" data-rocket-src='https://pixahive.com/wp-content/plugins/ultimate-member/assets/libs/pickadate/picker.time.min.js?ver=3.6.2' id='um_datetime_time-js' defer></script>
+<script id='um_common-js-extra'>
+var um_common_variables = {"locale":"en_US"};
+var um_common_variables = {"locale":"en_US"};
+</script>
+<script type="rocketlazyloadscript" data-rocket-src='https://pixahive.com/wp-content/plugins/ultimate-member/assets/js/common.min.js?ver=2.9.1' id='um_common-js' defer></script>
+<script type="rocketlazyloadscript" data-rocket-src='https://pixahive.com/wp-content/plugins/ultimate-member/assets/libs/cropper/cropper.min.js?ver=1.6.1' id='um_crop-js' defer></script>
+<script id='um_frontend_common-js-extra'>
+var um_frontend_common_variables = [];
+</script>
+<script type="rocketlazyloadscript" data-rocket-src='https://pixahive.com/wp-content/plugins/ultimate-member/assets/js/common-frontend.min.js?ver=2.9.1' id='um_frontend_common-js' defer></script>
+<script type="rocketlazyloadscript" data-rocket-src='https://pixahive.com/wp-content/plugins/ultimate-member/assets/js/um-modal.min.js?ver=2.9.1' id='um_modal-js' defer></script>
+<script type="rocketlazyloadscript" data-rocket-src='https://pixahive.com/wp-content/plugins/ultimate-member/assets/libs/jquery-form/jquery-form.min.js?ver=2.9.1' id='um_jquery_form-js' defer></script>
+<script type="rocketlazyloadscript" data-minify="1" data-rocket-src='https://pixahive.com/wp-content/cache/min/1/wp-content/plugins/ultimate-member/assets/libs/fileupload/fileupload.js?ver=1733547488' id='um_fileupload-js' defer></script>
+<script type="rocketlazyloadscript" data-rocket-src='https://pixahive.com/wp-content/plugins/ultimate-member/assets/js/um-functions.min.js?ver=2.9.1' id='um_functions-js' defer></script>
+<script type="rocketlazyloadscript" data-rocket-src='https://pixahive.com/wp-content/plugins/ultimate-member/assets/js/um-responsive.min.js?ver=2.9.1' id='um_responsive-js' defer></script>
+<script type="rocketlazyloadscript" data-rocket-src='https://pixahive.com/wp-content/plugins/ultimate-member/assets/js/um-conditional.min.js?ver=2.9.1' id='um_conditional-js' defer></script>
+<script type="rocketlazyloadscript" data-rocket-src='https://pixahive.com/wp-content/plugins/ultimate-member/assets/libs/select2/select2.full.min.js?ver=4.0.13' id='select2-js' defer></script>
+<script type="rocketlazyloadscript" data-minify="1" data-rocket-src='https://pixahive.com/wp-content/cache/min/1/wp-content/plugins/ultimate-member/assets/libs/select2/i18n/en.js?ver=1733547488' id='um_select2_locale-js' defer></script>
+<script type="rocketlazyloadscript" data-rocket-src='https://pixahive.com/wp-content/plugins/ultimate-member/assets/libs/raty/um-raty.min.js?ver=2.6.0' id='um_raty-js' defer></script>
+<script id='um_scripts-js-extra'>
+var um_scripts = {"max_upload_size":"536870912","nonce":"362db47cc8"};
+</script>
+<script type="rocketlazyloadscript" data-rocket-src='https://pixahive.com/wp-content/plugins/ultimate-member/assets/js/um-scripts.min.js?ver=2.9.1' id='um_scripts-js' defer></script>
+<script type="rocketlazyloadscript" data-rocket-src='https://pixahive.com/wp-content/plugins/ultimate-member/assets/js/um-profile.min.js?ver=2.9.1' id='um_profile-js' defer></script>
+<script type="rocketlazyloadscript" data-rocket-src='https://pixahive.com/wp-content/plugins/ultimate-member/assets/js/um-account.min.js?ver=2.9.1' id='um_account-js' defer></script>
+<script defer src='https://stats.wp.com/e-202504.js' id='jetpack-stats-js'></script>
+<script id='jetpack-stats-js-after'>
+_stq = window._stq || [];
+_stq.push([ "view", {v:'ext',blog:'181530249',post:'65664',tz:'5.5',srv:'pixahive.com',j:'1:12.1.2'} ]);
+_stq.push([ "clickTrackerInit", "181530249", "65664" ]);
+</script>
+<script type="rocketlazyloadscript" data-minify="1" defer data-rocket-src='https://pixahive.com/wp-content/cache/min/1/wp-content/plugins/akismet/_inc/akismet-frontend.js?ver=1733547488' id='akismet-frontend-js'></script>
+		<script type="rocketlazyloadscript" data-rocket-type="text/javascript">
+			jQuery( window ).on( 'load', function() {
+				jQuery('input[name="um_request"]').val('');
+			});
+		</script>
+	<script>window.lazyLoadOptions=[{elements_selector:"img[data-lazy-src],.rocket-lazyload",data_src:"lazy-src",data_srcset:"lazy-srcset",data_sizes:"lazy-sizes",class_loading:"lazyloading",class_loaded:"lazyloaded",threshold:300,callback_loaded:function(element){if(element.tagName==="IFRAME"&&element.dataset.rocketLazyload=="fitvidscompatible"){if(element.classList.contains("lazyloaded")){if(typeof window.jQuery!="undefined"){if(jQuery.fn.fitVids){jQuery(element).parent().fitVids()}}}}}},{elements_selector:".rocket-lazyload",data_src:"lazy-src",data_srcset:"lazy-srcset",data_sizes:"lazy-sizes",class_loading:"lazyloading",class_loaded:"lazyloaded",threshold:300,}];window.addEventListener('LazyLoad::Initialized',function(e){var lazyLoadInstance=e.detail.instance;if(window.MutationObserver){var observer=new MutationObserver(function(mutations){var image_count=0;var iframe_count=0;var rocketlazy_count=0;mutations.forEach(function(mutation){for(var i=0;i<mutation.addedNodes.length;i++){if(typeof mutation.addedNodes[i].getElementsByTagName!=='function'){continue}
+if(typeof mutation.addedNodes[i].getElementsByClassName!=='function'){continue}
+images=mutation.addedNodes[i].getElementsByTagName('img');is_image=mutation.addedNodes[i].tagName=="IMG";iframes=mutation.addedNodes[i].getElementsByTagName('iframe');is_iframe=mutation.addedNodes[i].tagName=="IFRAME";rocket_lazy=mutation.addedNodes[i].getElementsByClassName('rocket-lazyload');image_count+=images.length;iframe_count+=iframes.length;rocketlazy_count+=rocket_lazy.length;if(is_image){image_count+=1}
+if(is_iframe){iframe_count+=1}}});if(image_count>0||iframe_count>0||rocketlazy_count>0){lazyLoadInstance.update()}});var b=document.getElementsByTagName("body")[0];var config={childList:!0,subtree:!0};observer.observe(b,config)}},!1)</script><script data-no-minify="1" async src="https://pixahive.com/wp-content/plugins/wp-rocket/assets/js/lazyload/17.8.3/lazyload.min.js"></script>
+</body>
+</html>
+
+<!-- This website is like a Rocket, isn't it? Performance optimized by WP Rocket. Learn more: https://wp-rocket.me - Debug: cached@1737524875 -->
